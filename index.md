@@ -3,16 +3,16 @@
 layout: home
 
 hero:
-  name: "My Awesome Project"
+  name: "KK BLOG"
   text: "A VitePress Site"
   tagline: My great project tagline
   actions:
     - theme: brand
       text: Markdown Examples
-      link: /markdown-examples
+      link: /docs-example/markdown-examples
     - theme: alt
       text: API Examples
-      link: /api-examples
+      link: /docs-example/api-examples
 
 features:
   - title: Feature A
