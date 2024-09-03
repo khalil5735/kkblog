@@ -8,9 +8,9 @@ export default defineConfig({
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
-      { text: "Home", link: "/" },
+      { text: "首页", link: "/" },
       {
-        text: "Examples",
+        text: "示例",
         link: "/docs-example/markdown-examples",
         activeMatch: "/docs-example/",
       },
@@ -18,6 +18,11 @@ export default defineConfig({
         text: "javaGuide",
         link: "/docs-java/java8/函数式接口",
         activeMatch: "/docs-java",
+      },
+      {
+        text: "百宝箱",
+        link: "/docs-tools/",
+        activeMatch: "/docs-tools",
       },
     ],
 
@@ -29,6 +34,10 @@ export default defineConfig({
       "/docs-java/": {
         base: "/docs-java/",
         items: javaGuideSidebar("/docs-java/"),
+      },
+      "/docs-tools/": {
+        base: "/docs-tools/",
+        items: toolsSidebar("/docs-tools/"),
       },
     },
 
@@ -45,6 +54,14 @@ function exampleGuideSidebar() {
   ];
 }
 
+function toolsSidebar(base) {
+  return [
+    { text: "vscode", link: "vscode" },
+    { text: "markdown", link: "use-markdown" },
+    { text: "nvm", link: "nvm" },
+  ];
+}
+
 function javaGuideSidebar(base) {
   return [
     {
@@ -58,13 +75,25 @@ function javaGuideSidebar(base) {
         { text: "Java中自定义注解的使用", link: "Java中自定义注解的使用" },
         { text: "IO流概述", link: "IO流概述" },
         { text: "Java 日期", link: "Java 日期" },
-        { text: "java 文件操作-获取resource下文件的路径", link: "java 文件操作-获取resource下文件的路径" },
+        {
+          text: "java 文件操作-获取resource下文件的路径",
+          link: "java 文件操作-获取resource下文件的路径",
+        },
         { text: "java反射机制", link: "java反射机制" },
-        { text: "Java基础—成员变量、局部变量和静态变量的区别", link: "Java基础—成员变量、局部变量和静态变量的区别" },
+        {
+          text: "Java基础—成员变量、局部变量和静态变量的区别",
+          link: "Java基础—成员变量、局部变量和静态变量的区别",
+        },
         { text: "Java中关键字-final", link: "Java中关键字-final" },
         { text: "Java中关键字-static", link: "Java中关键字-static" },
-        { text: "List集合取交集、并集、差集、去重并集", link: "List集合取交集、并集、差集、去重并集" },
-        { text: "List集合中的对象按照某个字段去重实现", link: "List集合中的对象按照某个字段去重实现" },
+        {
+          text: "List集合取交集、并集、差集、去重并集",
+          link: "List集合取交集、并集、差集、去重并集",
+        },
+        {
+          text: "List集合中的对象按照某个字段去重实现",
+          link: "List集合中的对象按照某个字段去重实现",
+        },
       ],
     },
     {
