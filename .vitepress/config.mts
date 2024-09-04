@@ -21,7 +21,7 @@ export default defineConfig({
       },
       {
         text: "javaGuide",
-        link: "/docs-java/java8/函数式接口",
+        link: "/docs-java/搭建java开发环境",
         activeMatch: "/docs-java",
       },
       {
@@ -73,9 +73,9 @@ function javaGuideSidebar(base): DefaultTheme.SidebarItem[] {
     {
       text: "java 基础",
       base: base + "/java-basic/",
-      collapsed: true,
+      collapsed: false,
       items: [
-        { text: "异常", link: "异常2" },
+        { text: "异常", link: "异常" },
         { text: "代码块", link: "java-basic-codeblock" },
         { text: "注解", link: "java-basic-annotation" },
         { text: "Scanner", link: "Scanner" },
