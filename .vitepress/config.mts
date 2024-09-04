@@ -1,4 +1,4 @@
-import { defineConfig } from "vitepress";
+import { DefaultTheme, defineConfig } from "vitepress";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -6,6 +6,11 @@ export default defineConfig({
   description: "powered by VitePress",
   base: "/kkblog",
   themeConfig: {
+    outline: {
+      level: "deep",
+      label: "大纲",
+    },
+
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: "首页", link: "/" },
@@ -47,14 +52,14 @@ export default defineConfig({
   },
 });
 
-function exampleGuideSidebar() {
+function exampleGuideSidebar(): DefaultTheme.SidebarItem[] {
   return [
     { text: "Markdown Examples", link: "markdown-examples" },
     { text: "Runtime API Examples", link: "api-examples" },
   ];
 }
 
-function toolsSidebar(base) {
+function toolsSidebar(base): DefaultTheme.SidebarItem[] {
   return [
     { text: "vscode", link: "vscode" },
     { text: "markdown", link: "use-markdown" },
@@ -62,16 +67,20 @@ function toolsSidebar(base) {
   ];
 }
 
-function javaGuideSidebar(base) {
+function javaGuideSidebar(base): DefaultTheme.SidebarItem[] {
   return [
+    { text: "安装JDK", link: "搭建java开发环境" },
     {
       text: "java 基础",
       base: base + "/java-basic/",
+      collapsed: true,
       items: [
-        { text: "代码块", link: "代码块" },
+        { text: "异常", link: "异常2" },
+        { text: "代码块", link: "java-basic-codeblock" },
+        { text: "注解", link: "java-basic-annotation" },
+        { text: "Scanner", link: "Scanner" },
         { text: "面向对象基础", link: "面向对象基础" },
         { text: "正则表达式", link: "正则表达式" },
-        { text: "注解", link: "注解" },
         { text: "Java中自定义注解的使用", link: "Java中自定义注解的使用" },
         { text: "IO流概述", link: "IO流概述" },
         { text: "Java 日期", link: "Java 日期" },
@@ -100,6 +109,22 @@ function javaGuideSidebar(base) {
       text: "java8",
       base: base + "/java8/",
       items: [{ text: "函数式接口", link: "函数式接口" }],
+    },
+    {
+      text: "数据库框架",
+      base: base + "/db-framework/",
+      collapsed: true, // 配置可以折叠sidebar
+      items: [
+        {
+          text: "mybatis",
+          base: base + "/db-framework/mybatis/",
+          collapsed: true,
+          items: [
+            { text: "mybatis", link: "mybatis" },
+            { text: "springboot集成mybatis", link: "mybatis-springboot" },
+          ],
+        },
+      ],
     },
   ];
 }
