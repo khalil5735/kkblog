@@ -70,6 +70,7 @@ function toolsSidebar(base): DefaultTheme.SidebarItem[] {
 function javaGuideSidebar(base): DefaultTheme.SidebarItem[] {
   return [
     { text: "安装JDK", link: "搭建java开发环境" },
+    { text: "Maven环境", link: "/maven/maven" },
     {
       text: "java 基础",
       base: base + "/java-basic/",
@@ -125,6 +126,12 @@ function javaGuideSidebar(base): DefaultTheme.SidebarItem[] {
           ],
         },
       ],
+    },
+    {
+      text: "Spring",
+      base: base + "/spring/",
+      collapsed: true,
+      items: [{ text: "Bean的生命周期回调", link: "/core/Bean的生命周期回调" }],
     },
   ];
 }
