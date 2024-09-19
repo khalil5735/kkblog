@@ -21,8 +21,23 @@ export default defineConfig({
       },
       {
         text: "javaGuide",
-        link: "/docs-java/搭建java开发环境",
-        activeMatch: "/docs-java",
+        items: [
+          {
+            text: "java 基础",
+            link: "/docs-java/搭建java开发环境",
+            activeMatch: "/docs-java/java-basic",
+          },
+          {
+            text: "java8",
+            link: "/docs-java/java8",
+            activeMatch: "/docs-java/java8",
+          },
+          {
+            text: "Spring",
+            link: "/docs-java/spring/core/Bean的生命周期回调",
+            activeMatch: "/docs-java/spring",
+          },
+        ],
       },
       {
         text: "百宝箱",
@@ -39,6 +54,14 @@ export default defineConfig({
       "/docs-java/": {
         base: "/docs-java/",
         items: javaGuideSidebar("/docs-java/"),
+      },
+      "/docs-java/spring/": {
+        base: "/docs-java/spring/",
+        items: javaGuideSpringSidebar(),
+      },
+      "/docs-java/java8/": {
+        base: "/docs-java/java8/",
+        items: javaGuideJava8Sidebar(),
       },
       "/docs-tools/": {
         base: "/docs-tools/",
@@ -107,11 +130,6 @@ function javaGuideSidebar(base): DefaultTheme.SidebarItem[] {
       ],
     },
     {
-      text: "java8",
-      base: base + "/java8/",
-      items: [{ text: "函数式接口", link: "函数式接口" }],
-    },
-    {
       text: "数据库框架",
       base: base + "/db-framework/",
       collapsed: true, // 配置可以折叠sidebar
@@ -127,11 +145,37 @@ function javaGuideSidebar(base): DefaultTheme.SidebarItem[] {
         },
       ],
     },
+  ];
+}
+
+function javaGuideJava8Sidebar(): DefaultTheme.SidebarItem[] {
+  return [
     {
-      text: "Spring",
-      base: base + "/spring/",
-      collapsed: true,
-      items: [{ text: "Bean的生命周期回调", link: "/core/Bean的生命周期回调" }],
+      text: "java8",
+      base: "/docs-java/java8/",
+      items: [{ text: "函数式接口", link: "函数式接口" }],
+    },
+  ];
+}
+
+function javaGuideSpringSidebar(): DefaultTheme.SidebarItem[] {
+  return [
+    {
+      text: "Spring Core",
+      base: "/docs-java/spring/core",
+      collapsed: false,
+      items: [{ text: "Bean的生命周期回调", link: "/Bean的生命周期回调" }],
+    },
+    {
+      text: "Spring Other",
+      base: "/docs-java/spring/",
+      collapsed: false,
+      items: [
+        { text: "Spring JDBC", link: "/spring-jdbc" },
+        { text: "Spring Event", link: "/spring-event" },
+        { text: "Spring Message", link: "/spring-message" },
+        { text: "Spring Transaction", link: "/spring-transaction" },
+      ],
     },
   ];
 }
