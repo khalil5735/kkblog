@@ -70,6 +70,7 @@ function toolsSidebar(base): DefaultTheme.SidebarItem[] {
 function javaGuideSidebar(base): DefaultTheme.SidebarItem[] {
   return [
     { text: "安装JDK", link: "搭建java开发环境" },
+    { text: "Maven环境", link: "/maven/maven" },
     {
       text: "java 基础",
       base: base + "/java-basic/",
@@ -78,6 +79,7 @@ function javaGuideSidebar(base): DefaultTheme.SidebarItem[] {
         { text: "异常", link: "异常" },
         { text: "代码块", link: "java-basic-codeblock" },
         { text: "注解", link: "java-basic-annotation" },
+        { text: "java反射机制", link: "java-basic-reflection" },
         { text: "Scanner", link: "Scanner" },
         { text: "面向对象基础", link: "面向对象基础" },
         { text: "正则表达式", link: "正则表达式" },
@@ -88,7 +90,6 @@ function javaGuideSidebar(base): DefaultTheme.SidebarItem[] {
           text: "java 文件操作-获取resource下文件的路径",
           link: "java 文件操作-获取resource下文件的路径",
         },
-        { text: "java反射机制", link: "java反射机制" },
         {
           text: "Java基础—成员变量、局部变量和静态变量的区别",
           link: "Java基础—成员变量、局部变量和静态变量的区别",
@@ -125,6 +126,12 @@ function javaGuideSidebar(base): DefaultTheme.SidebarItem[] {
           ],
         },
       ],
+    },
+    {
+      text: "Spring",
+      base: base + "/spring/",
+      collapsed: true,
+      items: [{ text: "Bean的生命周期回调", link: "/core/Bean的生命周期回调" }],
     },
   ];
 }
