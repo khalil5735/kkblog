@@ -42,6 +42,11 @@ export default defineConfig({
             link: "/docs-java/db-framework/",
             activeMatch: "/docs-java/db-framework",
           },
+          {
+            text: "Jersey",
+            link: "/docs-java/jersey/",
+            activeMatch: "/docs-java/jersey",
+          },
         ],
       },
       {
@@ -71,6 +76,10 @@ export default defineConfig({
       "/docs-java/db-framework/": {
         base: "/docs-java/db-framework/",
         items: javaGuideDbFramworkSidebar("/docs-java/db-framework/"),
+      },
+      "/docs-java/jersey/": {
+        base: "/docs-java/jersey/",
+        items: javaGuideJerseySidebar("/docs-java/jersey/"),
       },
       "/docs-tools/": {
         base: "/docs-tools/",
@@ -223,5 +232,22 @@ function javaGuideDbFramworkSidebar(base): DefaultTheme.SidebarItem[] {
       text: "Spring中事务支持",
       link: "spring-tx",
     },
+  ];
+}
+
+function javaGuideJerseySidebar(base): DefaultTheme.SidebarItem[] {
+  return [
+    { text: "1.Jersey快速入门", link: "1.Jersey快速入门" },
+    { text: "2.Jersey参数绑定", link: "2.Jersey参数绑定" },
+    { text: "3.Jersey中的注入", link: "3.Jersey中的注入" },
+    { text: "4.Jersey的配置", link: "4.Jersey的配置" },
+    { text: "5.Entity Provider", link: "5.Entity Provider" },
+    { text: "6.Jersey上传下载", link: "6.Jersey上传下载" },
+    { text: "7.Jersey客户端API入门", link: "7.Jersey客户端API入门" },
+    { text: "8.Jersey的过滤器", link: "8.Jersey的过滤器" },
+    { text: "9.Jersey的拦截器", link: "9.Jersey的拦截器" },
+    { text: "10.Jersey统一异常处理", link: "10.Jersey统一异常处理" },
+    { text: "11.Spring 集成 Jersey", link: "11.Spring 集成 Jersey" },
+    { text: "12.Springboot集成Jersey", link: "12.Springboot集成Jersey" },
   ];
 }
