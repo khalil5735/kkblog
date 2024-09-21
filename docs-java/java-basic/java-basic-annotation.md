@@ -222,7 +222,7 @@ public @interface Report {
 
 其中，必须设置`@Target`和`@Retention`，`@Retention`一般设置为`RUNTIME`，因为我们自定义的注解通常要求在运行期读取。一般情况下，不必写`@Inherited`和`@Repeatable`。
 
-## 处理注解
+## 处理注解（反射）
 如何使用注解完全由工具决定。`SOURCE`类型的注解主要由编译器使用，因此我们一般只使用，不编写。`CLASS`类型的注解主要由底层工具库使用，涉及到`class`的加载，一般我们很少用到。只有`RUNTIME`类型的注解不但要使用，还经常需要编写。以下示例如何读取`RUNTIME`类型的注解。
 
 
@@ -284,7 +284,8 @@ for (Annotation anno : annosOfName) {
 }
 ```
 
-### 测试
+**测试**
+
 定义注解：
 
 ```java

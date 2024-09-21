@@ -114,11 +114,11 @@ function javaGuideSidebar(base): DefaultTheme.SidebarItem[] {
           link: "java 文件操作-获取resource下文件的路径",
         },
         {
-          text: "Java基础—成员变量、局部变量和静态变量的区别",
-          link: "Java基础—成员变量、局部变量和静态变量的区别",
+          text: "成员变量、局部变量和静态变量",
+          link: "成员变量、局部变量和静态变量",
         },
-        { text: "Java中关键字-final", link: "Java中关键字-final" },
-        { text: "Java中关键字-static", link: "Java中关键字-static" },
+        { text: "Java中关键字-final", link: "java-keyword-final" },
+        { text: "Java中关键字-static", link: "java-keyword-static" },
         {
           text: "List集合取交集、并集、差集、去重并集",
           link: "List集合取交集、并集、差集、去重并集",
@@ -165,6 +165,9 @@ function javaGuideSpringSidebar(): DefaultTheme.SidebarItem[] {
       base: "/docs-java/spring/core",
       collapsed: false,
       items: [{ text: "Bean的生命周期回调", link: "/Bean的生命周期回调" }],
+    },{
+      text:'Spring整合邮件',
+      link:'/整合/spring整合email'
     },
     {
       text: "Spring Other",
