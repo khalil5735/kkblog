@@ -14,11 +14,11 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: "首页", link: "/" },
-      {
-        text: "示例",
-        link: "/docs-example/markdown-examples",
-        activeMatch: "/docs-example/",
-      },
+      // {
+      //   text: "示例",
+      //   link: "/docs-example/markdown-examples",
+      //   activeMatch: "/docs-example/",
+      // },
       {
         text: "javaGuide",
         items: [
@@ -57,10 +57,10 @@ export default defineConfig({
     ],
 
     sidebar: {
-      "/docs-example/": {
-        base: "/docs-example/",
-        items: exampleGuideSidebar(),
-      },
+      // "/docs-example/": {
+      //   base: "/docs-example/",
+      //   items: exampleGuideSidebar(),
+      // },
       "/docs-java/": {
         base: "/docs-java/",
         items: javaGuideSidebar("/docs-java/"),
@@ -81,10 +81,10 @@ export default defineConfig({
         base: "/docs-java/jersey/",
         items: javaGuideJerseySidebar("/docs-java/jersey/"),
       },
-      "/docs-tools/": {
-        base: "/docs-tools/",
-        items: toolsSidebar("/docs-tools/"),
-      },
+      // "/docs-tools/": {
+      //   base: "/docs-tools/",
+      //   items: toolsSidebar("/docs-tools/"),
+      // },
     },
 
     socialLinks: [
