@@ -14,45 +14,45 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: "首页", link: "/" },
-      // {
-      //   text: "示例",
-      //   link: "/docs-example/markdown-examples",
-      //   activeMatch: "/docs-example/",
-      // },
       {
-        text: "javaGuide",
+        text: "JAVA",
         items: [
           {
             text: "java 基础",
-            link: "/docs-java/搭建java开发环境",
-            activeMatch: "/docs-java/java-basic",
+            link: "/100-docs-java/搭建java开发环境",
+            activeMatch: "/100-docs-java/java-basic",
           },
           {
             text: "java8",
-            link: "/docs-java/java8",
-            activeMatch: "/docs-java/java8",
+            link: "/100-docs-java/java8",
+            activeMatch: "/100-docs-java/java8",
           },
           {
             text: "Spring",
-            link: "/docs-java/spring/core/Bean的生命周期回调",
-            activeMatch: "/docs-java/spring",
+            link: "/100-docs-java/spring/core/Bean的生命周期回调",
+            activeMatch: "/100-docs-java/spring",
           },
           {
             text: "数据库框架",
-            link: "/docs-java/db-framework/",
-            activeMatch: "/docs-java/db-framework",
+            link: "/100-docs-java/db-framework/",
+            activeMatch: "/100-docs-java/db-framework",
           },
           {
             text: "Jersey",
-            link: "/docs-java/jersey/",
-            activeMatch: "/docs-java/jersey",
+            link: "/100-docs-java/jersey/",
+            activeMatch: "/100-docs-java/jersey",
           },
         ],
       },
       {
+        text: "大前端",
+        link: "/200-docs-front/",
+        activeMatch: "/200-docs-front/",
+      },
+      {
         text: "百宝箱",
-        link: "/docs-tools/",
-        activeMatch: "/docs-tools",
+        link: "/500-docs-tools/",
+        activeMatch: "/500-docs-tools",
       },
     ],
 
@@ -61,29 +61,29 @@ export default defineConfig({
       //   base: "/docs-example/",
       //   items: exampleGuideSidebar(),
       // },
-      "/docs-java/": {
-        base: "/docs-java/",
-        items: javaGuideSidebar("/docs-java/"),
+      "/100-docs-java/": {
+        base: "/100-docs-java/",
+        items: javaGuideSidebar("/100-docs-java/"),
       },
-      "/docs-java/spring/": {
-        base: "/docs-java/spring/",
+      "/100-docs-java/spring/": {
+        base: "/100-docs-java/spring/",
         items: javaGuideSpringSidebar(),
       },
-      "/docs-java/java8/": {
-        base: "/docs-java/java8/",
+      "/100-docs-java/java8/": {
+        base: "/100-docs-java/java8/",
         items: javaGuideJava8Sidebar(),
       },
-      "/docs-java/db-framework/": {
-        base: "/docs-java/db-framework/",
-        items: javaGuideDbFramworkSidebar("/docs-java/db-framework/"),
+      "/100-docs-java/db-framework/": {
+        base: "/100-docs-java/db-framework/",
+        items: javaGuideDbFramworkSidebar("/100-docs-java/db-framework/"),
       },
-      "/docs-java/jersey/": {
-        base: "/docs-java/jersey/",
-        items: javaGuideJerseySidebar("/docs-java/jersey/"),
+      "/100-docs-java/jersey/": {
+        base: "/100-docs-java/jersey/",
+        items: javaGuideJerseySidebar("/100-docs-java/jersey/"),
       },
-      // "/docs-tools/": {
-      //   base: "/docs-tools/",
-      //   items: toolsSidebar("/docs-tools/"),
+      // "/500-docs-tools/": {
+      //   base: "/500-docs-tools/",
+      //   items: toolsSidebar("/500-docs-tools/"),
       // },
     },
 
@@ -170,7 +170,7 @@ function javaGuideJava8Sidebar(): DefaultTheme.SidebarItem[] {
   return [
     {
       text: "java8",
-      base: "/docs-java/java8/",
+      base: "/100-docs-java/java8/",
       items: [{ text: "函数式接口", link: "函数式接口" }],
     },
   ];
@@ -180,7 +180,7 @@ function javaGuideSpringSidebar(): DefaultTheme.SidebarItem[] {
   return [
     {
       text: "Spring Core",
-      base: "/docs-java/spring/core",
+      base: "/100-docs-java/spring/core",
       collapsed: false,
       items: [{ text: "Bean的生命周期回调", link: "/Bean的生命周期回调" }],
     },
@@ -190,7 +190,7 @@ function javaGuideSpringSidebar(): DefaultTheme.SidebarItem[] {
     },
     {
       text: "Spring Other",
-      base: "/docs-java/spring/",
+      base: "/100-docs-java/spring/",
       collapsed: false,
       items: [
         { text: "Spring JDBC", link: "/spring-jdbc" },
