@@ -33,6 +33,11 @@ export default defineConfig({
             activeMatch: "/100-docs-java/spring",
           },
           {
+            text: "SpringMVC-路人系列",
+            link: "/100-docs-java/500-springmvc/luren",
+            activeMatch: "/100-docs-java/500-springmvc/luren",
+          },
+          {
             text: "SpringSecurity",
             link: "/100-docs-java/510-spring-security/",
             activeMatch: "/100-docs-java/510-spring-security",
@@ -79,6 +84,15 @@ export default defineConfig({
         base: "/100-docs-java/spring/",
         items: javaGuideSpringSidebar(),
       },
+      "/100-docs-java/500-springmvc/luren": {
+        base: "/100-docs-java/500-springmvc/luren/",
+        items: [
+          {
+            text: "02-@Controller、@RequestMapping",
+            link: "02-@Controller、@RequestMapping",
+          },
+        ],
+      },
       "/100-docs-java/510-spring-security": {
         base: "/100-docs-java/510-spring-security",
         items: [
@@ -101,9 +115,7 @@ export default defineConfig({
       },
       "/100-docs-java/810-中间件-RabbitMQ": {
         base: "/100-docs-java/810-中间件-RabbitMQ/",
-        items: [
-          { text: "RabbitMQ", link: "/RabbitMQ" },
-        ],
+        items: [{ text: "RabbitMQ", link: "/RabbitMQ" }],
       },
       // "/500-docs-tools/": {
       //   base: "/500-docs-tools/",

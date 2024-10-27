@@ -24,11 +24,6 @@
 
 ## 2、预备知识
 
-学习 springmvc 之前，需要先掌握 2 个系列的课程：maven 和 spring，还未学的朋友，先去补补。
-
-- [路人甲 Java - maven 系列](http://mp.weixin.qq.com/s?__biz=MzA5MTkxMDQ4MQ==&mid=2648933753&idx=1&sn=0b41083939980be87a61c4f573792459&chksm=88621d47bf1594516092b662c545abfac299d296e232bf25e9f50be97e002e2698ea78218828&scene=21#wechat_redirect)
-- [路人甲 Java - spring 高手系列](http://mp.weixin.qq.com/s?__biz=MzA5MTkxMDQ4MQ==&mid=2648939328&idx=1&sn=4eecdb72f0cb1206ebbcc8af59886980&chksm=8862037ebf158a68a770f10062e6816281220a6ed5debff60b05441e4fe619ccfaac9df6be95&scene=21#wechat_redirect)
-
 ## 3、软件版本
 
 - idea 2020.3.3
