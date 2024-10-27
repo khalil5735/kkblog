@@ -33,9 +33,19 @@ export default defineConfig({
             activeMatch: "/100-docs-java/spring",
           },
           {
+            text: "SpringSecurity",
+            link: "/100-docs-java/510-spring-security/",
+            activeMatch: "/100-docs-java/510-spring-security",
+          },
+          {
             text: "数据库框架",
             link: "/100-docs-java/db-framework/",
             activeMatch: "/100-docs-java/db-framework",
+          },
+          {
+            text: "中间件-RabbitMQ",
+            link: "/100-docs-java/810-中间件-RabbitMQ/",
+            activeMatch: "/100-docs-java/810-中间件-RabbitMQ",
           },
           {
             text: "Jersey",
@@ -61,13 +71,21 @@ export default defineConfig({
       //   base: "/docs-example/",
       //   items: exampleGuideSidebar(),
       // },
-      "/100-docs-java/": {
-        base: "/100-docs-java/",
-        items: javaGuideSidebar("/100-docs-java/"),
-      },
+      // "/100-docs-java/": {
+      //   base: "/100-docs-java/",
+      //   items: javaGuideSidebar("/100-docs-java/"),
+      // },
       "/100-docs-java/spring/": {
         base: "/100-docs-java/spring/",
         items: javaGuideSpringSidebar(),
+      },
+      "/100-docs-java/510-spring-security": {
+        base: "/100-docs-java/510-spring-security",
+        items: [
+          { text: "单点登录原理与简单实现", link: "/单点登录原理与简单实现" },
+          { text: "认识Autho2.0", link: "/认识Autho2.0" },
+          { text: "SpringSecurity实战", link: "/SpringSecurity实战" },
+        ],
       },
       "/100-docs-java/java8/": {
         base: "/100-docs-java/java8/",
@@ -80,6 +98,12 @@ export default defineConfig({
       "/100-docs-java/jersey/": {
         base: "/100-docs-java/jersey/",
         items: javaGuideJerseySidebar("/100-docs-java/jersey/"),
+      },
+      "/100-docs-java/810-中间件-RabbitMQ": {
+        base: "/100-docs-java/810-中间件-RabbitMQ/",
+        items: [
+          { text: "RabbitMQ", link: "/RabbitMQ" },
+        ],
       },
       // "/500-docs-tools/": {
       //   base: "/500-docs-tools/",
@@ -250,4 +274,8 @@ function javaGuideJerseySidebar(base): DefaultTheme.SidebarItem[] {
     { text: "11.Spring 集成 Jersey", link: "11.Spring 集成 Jersey" },
     { text: "12.Springboot集成Jersey", link: "12.Springboot集成Jersey" },
   ];
+}
+
+function javaGuideZjjSidebar(base): DefaultTheme.SidebarItem[] {
+  return [{ text: "RabbitMQ", link: "/RabbitMQ/RabbitMQ" }];
 }

@@ -4,6 +4,8 @@
 
 下载地址：https://adoptopenjdk.net/
 
+[Java Download | Java 8, Java 11, Java 17, Java 21, Java 23 - OpenJDK Builds for Linux, Windows & macOS (bell-sw.com)](https://bell-sw.com/pages/downloads/)
+
 可下载zip解压版
 
 
