@@ -17,11 +17,7 @@
 
 但是咱们系统中所有的接口返回值都是下面这种格式的，难道咱们要一个个去手动改一下接口的返回值么？
 
-
-
 ![img](./assets/640-1720013898119-292.png)
-
-
 
 SpringMVC 为我们提供了更简单的方法，此时我们可以使用 RequestBodyAdvice 来实现，拦截所有 @ResponseBody 接口，将接口的返回值包装一下，包装为统一的格式返回，下面来看具体代码如何实现。
 
@@ -33,11 +29,7 @@ SpringMVC 为我们提供了更简单的方法，此时我们可以使用 Reques
 https://gitee.com/javacode2018/springmvc-series
 ```
 
-
-
 ![img](./assets/640-1720013898119-293.png)
-
-
 
 ### 3.2、定义返回值的通用类型
 
@@ -171,7 +163,7 @@ public class ResultDtoResponseBodyAdvice implements ResponseBodyAdvice<Object> {
 }
 ```
 
-需要实现 ResponseBodyAdvice 接口类上需要标注 @ControllerAdvice 注解springmvc 内部会对 @ResponseBody 方法的返回值进行处理，会先调用 ResponseBodyAdvice 的 supports 方法，如果方法返回 true，则会进到其`beforeBodyWrite`方法中，我们在这个方法中将其包装为需求中统一的格式返回。大家需要注意 supports 方法，内部排除 NO_SUPPORTED_CLASSES 中指定的 5 种类型，这几种类型的返回值不会被处理。
+需要实现 ResponseBodyAdvice 接口类上需要标注 @ControllerAdvice 注解 springmvc 内部会对 @ResponseBody 方法的返回值进行处理，会先调用 ResponseBodyAdvice 的 supports 方法，如果方法返回 true，则会进到其`beforeBodyWrite`方法中，我们在这个方法中将其包装为需求中统一的格式返回。大家需要注意 supports 方法，内部排除 NO_SUPPORTED_CLASSES 中指定的 5 种类型，这几种类型的返回值不会被处理。
 
 ### 3.4、来个 controller 测试效果
 
@@ -245,21 +237,17 @@ public class UserController {
 
 controller 中定义了 5 个接口，来看看他们的返回值，顺便看下他们是否会被 ResultDtoResponseBodyAdvice 处理为统一的格式呢？
 
-| 方法 / 接口 | 返回值     | 是否会被 ResultDtoResponseBodyAdvice 处理？ |
-| ----------- | ---------- | ------------------------------------------- |
-| /user       | User       | 是                                          |
-| /user/list  | List<User> | 是                                          |
-| /user/m1    | String     | 否                                          |
-| /user/m2    | Integer    | 是                                          |
-| /user/m3    | ResultDto  | 否                                          |
+| 方法 / 接口 | 返回值       | 是否会被 ResultDtoResponseBodyAdvice 处理？ |
+| ----------- | ------------ | ------------------------------------------- |
+| /user       | User         | 是                                          |
+| /user/list  | `List<User>` | 是                                          |
+| /user/m1    | String       | 否                                          |
+| /user/m2    | Integer      | 是                                          |
+| /user/m3    | ResultDto    | 否                                          |
 
 ### 3.5、验证接口输出
 
-
-
 ![img](./assets/640-1720013898119-294.png)
-
-
 
 **/user 接口：** 输出如下，说明被统一处理了
 
@@ -382,11 +370,7 @@ public @interface ControllerAdvice {
 org.springframework.web.method.HandlerTypePredicate#test
 ```
 
-
-
 ![img](./assets/640-1720013898119-295.png)
-
-
 
 ## 6、ResponseBodyAdvice 原理
 

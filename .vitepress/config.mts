@@ -2,6 +2,7 @@ import { DefaultTheme, defineConfig } from "vitepress";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
+  ignoreDeadLinks:true,
   title: "KK BLOG",
   description: "powered by VitePress",
   base: "/kkblog",
@@ -91,6 +92,7 @@ export default defineConfig({
             text: "02-@Controller、@RequestMapping",
             link: "02-@Controller、@RequestMapping",
           },
+          {text:'11-集成静态资源的多种方式',link:'11-集成静态资源的多种方式'}
         ],
       },
       "/100-docs-java/510-spring-security": {

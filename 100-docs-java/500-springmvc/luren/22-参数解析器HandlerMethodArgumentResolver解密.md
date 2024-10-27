@@ -1,25 +1,17 @@
-# 带你解密：SpringBoot接口到底支持多少种类型的参数？
-
-
+# 带你解密：SpringBoot 接口到底支持多少种类型的参数？
 
 > 本文由 [简悦 SimpRead](http://ksria.com/simpread/) 转码， 原文地址 [mp.weixin.qq.com](https://mp.weixin.qq.com/s?__biz=MzA5MTkxMDQ4MQ==&mid=2648942681&idx=1&sn=eeea9d5d97e1cdd46a63cb1c953b5176&chksm=88623067bf15b97132d85741b2241ca776bee1d46ff2dad373323be806488e7bcb5b602071f9&scene=178&cur_album_id=1873497824336658435#rd)
 
-
-
-1、来看 2 个好问题
------------
+## 1、来看 2 个好问题
 
 大家在使用 SpringMVC 或者 SpringBoot 开发接口的时候，有没有思考过下面这 2 个问题
 
-*   接口的参数到底支持哪些类型？有什么规律可循么？
-    
-*   接口参数的值是从哪里来的呢？
-    
+- 接口的参数到底支持哪些类型？有什么规律可循么？
+- 接口参数的值是从哪里来的呢？
 
 说实话，这 2 个问题非常关键，搞懂原理之后，开发接口将得心应手，今天就带大家从原理上来搞懂这俩问题。
 
-2、SpringMVC 处理请求大概的过程
----------------------
+## 2、SpringMVC 处理请求大概的过程
 
 step1、接受请求
 
@@ -33,8 +25,7 @@ step5、响应结果等
 
 咱们重点来看 step3 参数值组装这个过程。
 
-3、解析处理器方法参数的值
--------------
+## 3、解析处理器方法参数的值
 
 解析参数需要的值，SpringMVC 中专门有个接口来干这个事情，这个接口就是：**HandlerMethodArgumentResolver**，中文称呼：处理器放放参数解析器，说白了就是解析请求得到 Controller 方法的参数的值。
 
@@ -91,8 +82,7 @@ for (MethodParameter parameter : parameterList) {
 org.springframework.web.method.support.InvocableHandlerMethod#getMethodArgumentValues
 ```
 
-4、常见的 HandlerMethodArgumentResolver
------------------------------------
+## 4、常见的 HandlerMethodArgumentResolver
 
 大家可以在 `InvocableHandlerMethod#getMethodArgumentValues` 这个位置设置断点，可以详细了解参数解析的过程，debug 中我们可以在这看到 SpringMVC 中默认情况下注册了这么多解析器，如下图：
 
@@ -104,8 +94,7 @@ org.springframework.web.method.support.InvocableHandlerMethod#getMethodArgumentV
 
 实现类比较多，就不一一说了，这里教大家一招，让大家学会如何看每种参数解析器的源码，掌握看源码之后，大家把每个实现类的源码过一下，基本上就知道如何使用了，这里以`RequestParamMethodArgumentResolver`源码为例来做解读。
 
-5、RequestParamMethodArgumentResolver 源码解读
------------------------------------------
+## 5、RequestParamMethodArgumentResolver 源码解读
 
 ### 5.1、supportsParameter 方法：判断支持参数类型
 
@@ -172,8 +161,7 @@ protected Object resolveName(String name, MethodParameter parameter, NativeWebRe
 }
 ```
 
-5、@RequestParam：取请求中的参数
------------------------
+## 5、@RequestParam：取请求中的参数
 
 ### 5.1、简介
 
@@ -218,7 +206,7 @@ public @interface RequestParam {
 
 案例代码如下，注意 5 个参数，这 5 个参数反应了`@RequestParam`所有的的用法，这个接口的参数解析会用到 2 个解析器：`RequestParamMethodArgumentResolver`和`RequestParamMapMethodArgumentResolver`，大家可以设置断点 debug 一下。
 
-> 注意最后一个参数的类型是 MultiValueMap，这种类型相当于 Map<String,List<String>>
+> 注意最后一个参数的类型是 MultiValueMap，这种类型相当于 `Map<String,List<String>>`
 
 ```java
 @RequestMapping("/test1")
@@ -248,47 +236,31 @@ http://localhost:8080/chat17/test1?name=ready&age=35&p1=1&p1=2&p1=3
 
 ```json
 {
- "name": "ready",
- "age": 35,
- "p1Map": [
-  "1",
-  "2",
-  "3"
- ],
- "requestParams1": {
   "name": "ready",
-  "age": "35",
-  "p1": "1"
- },
- "requestParams2": {
-  "name": [
-   "ready"
-  ],
-  "age": [
-   "35"
-  ],
-  "p1": [
-   "1",
-   "2",
-   "3"
-  ]
- }
+  "age": 35,
+  "p1Map": ["1", "2", "3"],
+  "requestParams1": {
+    "name": "ready",
+    "age": "35",
+    "p1": "1"
+  },
+  "requestParams2": {
+    "name": ["ready"],
+    "age": ["35"],
+    "p1": ["1", "2", "3"]
+  }
 }
 ```
 
-7、总结
-----
+## 7、总结
 
 本文带大家了解了参数解析器`HandlerMethodArgumentResolver`的作用，掌握这个之后，大家就知道控制器的方法中参数的写法，建议大家下去之后，多翻翻这个接口的实现类，掌握常见的参数的各种用法，这样出问题了，才能够快速定位问题，提升快速解决问题的能力。
 
-8、代码位置及说明
----------
+## 8、代码位置及说明
 
 ### 8.1、git 地址
 
 https://gitee.com/javacode2018/springmvc-series
-
-
 
 ### 8.2、本文案例代码结构说明
 

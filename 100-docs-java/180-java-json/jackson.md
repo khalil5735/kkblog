@@ -1443,7 +1443,7 @@ JsonPropertyEntry{field1='111', field2='222'}
 
 
 - 本文是《jackson 学习》系列的第八篇，继续学习 jackson 强大的注解能力，本篇学习常用的方法注解，并通过实例来加深印象，下图是常用方法注解的简介：
-  ![img](./assets/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JvbGluZ19jYXZhbHJ5,size_16,color_FFFFFF,t_70#pic_center.jpeg)
+  <!-- ![img](./assets/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JvbGluZ19jYXZhbHJ5,size_16,color_FFFFFF,t_70#pic_center.jpeg) -->
 
 
 
@@ -1478,7 +1478,7 @@ JsonPropertyEntry{field1='111', field2='222'}
 
 
 1. Test 类的序列化结果如下，即 getField0 方法的返回值：
-   ![img](./assets/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JvbGluZ19jYXZhbHJ5,size_16,color_FFFFFF,t_70#pic_center-1726925063613-1.jpeg)
+   <!-- ![img](./assets/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JvbGluZ19jYXZhbHJ5,size_16,color_FFFFFF,t_70#pic_center-1726925063613-1.jpeg) -->
 
 
 
@@ -1523,7 +1523,7 @@ JsonPropertyEntry{field1='111', field2='222'}
 
 
 1. 反序列化结果如下：
-   ![img](./assets/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JvbGluZ19jYXZhbHJ5,size_16,color_FFFFFF,t_70#pic_center-1726925063613-2.jpeg)
+   <!-- ![img](./assets/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JvbGluZ19jYXZhbHJ5,size_16,color_FFFFFF,t_70#pic_center-1726925063613-2.jpeg) -->
 
 
 
@@ -1533,9 +1533,9 @@ JsonPropertyEntry{field1='111', field2='222'}
 
 1. JsonSetter 注解在 set 方法上，被用来在反序列化时指定 set 方法对应 json 的哪个属性；
 2. JsonSetter 源码中，推荐使用 JsonProperty 来取代 JsonSetter：
-   ![img](./assets/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JvbGluZ19jYXZhbHJ5,size_16,color_FFFFFF,t_70#pic_center-1726925063613-3.jpeg)
+   <!-- ![img](./assets/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JvbGluZ19jYXZhbHJ5,size_16,color_FFFFFF,t_70#pic_center-1726925063613-3.jpeg) -->
 3. 测试代码和结果如下，可见反序列化时，是按照 JsonSetter 的 value 去 json 中查找属性的：
-   ![img](./assets/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JvbGluZ19jYXZhbHJ5,size_16,color_FFFFFF,t_70#pic_center-1726925063613-4.jpeg)
+   <!-- ![img](./assets/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JvbGluZ19jYXZhbHJ5,size_16,color_FFFFFF,t_70#pic_center-1726925063613-4.jpeg) -->
 
 
 
@@ -1546,9 +1546,9 @@ JsonPropertyEntry{field1='111', field2='222'}
 1. JsonGetter 只能作为方法注解；
 2. 在序列化时，被 JsonGetter 注解的 get 方法，对应的 json 字段名是 JsonGetter 的 value；
 3. JsonGetter 源码中，推荐使用 JsonProperty 来取代 JsonGetter：
-   ![img](./assets/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JvbGluZ19jYXZhbHJ5,size_16,color_FFFFFF,t_70#pic_center-1726925063613-5.jpeg)
+   <!-- ![img](./assets/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JvbGluZ19jYXZhbHJ5,size_16,color_FFFFFF,t_70#pic_center-1726925063613-5.jpeg) -->
 4. 测试代码和结果如下，可见序列化时 JsonGetter 的 value 会被作为 json 字段名：
-   ![img](./assets/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JvbGluZ19jYXZhbHJ5,size_16,color_FFFFFF,t_70#pic_center-1726925063613-6.jpeg)
+   <!-- ![img](./assets/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JvbGluZ19jYXZhbHJ5,size_16,color_FFFFFF,t_70#pic_center-1726925063613-6.jpeg) -->
 
 
 
@@ -1623,7 +1623,7 @@ public class JsonAnySetterSerialization {
 
 
 1. 接下来，对上述代码做一处改动，如下图红框所示，给 getMap 方法增加 JsonAnyGetter 注解：
-   ![img](./assets/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JvbGluZ19jYXZhbHJ5,size_16,color_FFFFFF,t_70#pic_center-1726925063613-7.jpeg)
+   <!-- ![img](./assets/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JvbGluZ19jYXZhbHJ5,size_16,color_FFFFFF,t_70#pic_center-1726925063613-7.jpeg) -->
 2. 修改后的执行结果如下，原来的 map 字段没有了，map 内部的所有键值对都成了 json 的字段：
 
 
