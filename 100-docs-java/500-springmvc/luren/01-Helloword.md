@@ -1,7 +1,5 @@
 # 路人的 SpringMVC 系列来了！！！
 
-
-
 本文由 [简悦 SimpRead](http://ksria.com/simpread/) 转码， 原文地址 https://mp.weixin.qq.com/s?__biz=MzA5MTkxMDQ4MQ==&mid=2648940259&idx=1&sn=89b71abf95db83f96c046830b393215a&chksm=886206ddbf158fcbf886df462ed57e4e92d430737fa39d76c35d11274ce3caca49774ca57a52&scene=178&cur_album_id=1873497824336658435#rd
 
 **大家好，我是路人**，前段时间把 spring 系列写完之后，就直接写 springboot 系列了，但是发现了一个问题，有不少粉丝问我 springmvc 系列哪里看？这些粉丝中可能有些朋友根本没有接触过 springmvc，然后直接被我带入了 springboot，会突然感觉很懵逼。
@@ -40,13 +38,13 @@
 
 ### 开发步骤
 
-1、创建一个maven项目
-2、在项目中创建一个maven web模块
-3、maven中添加springmvc相关依赖
-4、web.xml中配置springmvc
-5、添加springmvc配置文件
-6、写一个HelloWordController
-7、将项目部署到tomcat中
+1、创建一个 maven 项目
+2、在项目中创建一个 maven web 模块
+3、maven 中添加 springmvc 相关依赖
+4、web.xml 中配置 springmvc
+5、添加 springmvc 配置文件
+6、写一个 HelloWordController
+7、将项目部署到 tomcat 中
 8、浏览器中验证效果
 
 下面跟着我一步步来操作。
@@ -232,7 +230,7 @@ web.xml 版本升级成功
 
 ### step5、添加 springmvc 配置文件
 
-```
+```plain
 chat01-helloword->resource->鼠标右键->New->XXML Configuration File->Spring Config
 ```
 
@@ -298,13 +296,13 @@ public class HelloController {
 ```html
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-<head>
+  <head>
     <title>Hello SpringMvc</title>
-</head>
-<body>
-<h2>hello SpringMVC</h2>
-<p>msg:${message}</p>
-</body>
+  </head>
+  <body>
+    <h2>hello SpringMVC</h2>
+    <p>msg:${message}</p>
+  </body>
 </html>
 ```
 
@@ -312,9 +310,9 @@ public class HelloController {
 
 ```html
 <html>
-<body>
-<a href="hello.do">springmvc第一个案例</a>
-</body>
+  <body>
+    <a href="hello.do">springmvc第一个案例</a>
+  </body>
 </html>
 ```
 
@@ -332,21 +330,17 @@ public class HelloController {
 
 ![img](./assets/1719503672245-528dad4e-8852-4960-b953-670ed4880f52.webp)
 
-
-
 如下图，启动 tomcat
 
 ![img](./assets/1719503679290-ab59870d-518e-4078-be6a-03d2e7a3aca3.webp)
 
 ### step8、验证效果
 
-访问：http://localhost:8080/chat01/
+访问：`http://localhost:8080/chat01/`
 
 ![img](./assets/1719503705417-e6429fcf-c5ce-47bc-a279-f2b0e6ac487a.webp)
 
-点击页面中的连接，会跳转到http://localhost:8080/chat01/hello.do，输出
-
-
+点击页面中的连接，会跳转到 `http://localhost:8080/chat01/hello.do`，输出
 
 ![img](./assets/1719503714833-d88eccca-e5e6-4875-8f18-f164fec7b8c3.webp)
 
@@ -362,19 +356,13 @@ public class HelloController {
 
 ![img](./assets/1719504415466-59d0cdeb-8790-40ae-9e89-f8be26b3f14f.webp)
 
-3、当发起*.do 请求的时候，请求会到达 DispatcherServlet 中央处理器，中央处理器会根据请求路径，去 springmvc 容器中找到能够处理这个请求的方法，具体由哪个方法来处理这个请求呢？
+3、当发起\*.do 请求的时候，请求会到达 DispatcherServlet 中央处理器，中央处理器会根据请求路径，去 springmvc 容器中找到能够处理这个请求的方法，具体由哪个方法来处理这个请求呢？
 
 这里就是通过@RequestMapping 来匹配的，这个注解可以将请求和方法进行映射，匹配的请求会被@RequestMapping 标注的方法处理，所以在这个步骤中 springmvc 容器会发现 HelloController 这个 bean 的 hello 方法方法可以处理/hello.do 请求
 
-
-
 4、DispatcherServlet 中通过反射来调用 helloController 这个 bean 的 hello 方法
 
-
-
 5、DispatcherServlet 接收到了 hello 方法的返回值
-
-
 
 6、DispatcherServlet 根据 hello 方法的返回值，做跳转操作，相当于
 
@@ -384,23 +372,4 @@ request.getRequestDispatcher("/WEB-INF/view/hello.jsp").forward(request,response
 
 ### 6.2、简化过程
 
-客户端发送请求 ---> 到达 tomcat ---> tomcat 发现是请求是*.do 的请求 ---> tomcat 将请求转发给中央调度器 DispatcherServlet ---> 中央调度器根据 url 将转发给我们自定义的 controller ---> DispacherServlet 根据 controller 的返回结果做跳转操作 ---> 将结果输出到客户端
-
-## 7、总结
-
-本文主要通过一个案例详细介绍了 springmvc 开发项目的一个过程，大家把案例敲一遍，有问题，欢迎留言交流。
-
-## 8、软件及代码位置
-
-软件地址：
-
-链接：https://pan.baidu.com/s/1_Ol-UZkN_6woMBtjcFygvQ
-
-提取码：e66j
-
-
-
-代码位于码云上
-
-https://gitee.com/javacode2018/springmvc-series
-
+客户端发送请求 ---> 到达 tomcat ---> tomcat 发现是请求是\*.do 的请求 ---> tomcat 将请求转发给中央调度器 DispatcherServlet ---> 中央调度器根据 url 将转发给我们自定义的 controller ---> DispacherServlet 根据 controller 的返回结果做跳转操作 ---> 将结果输出到客户端

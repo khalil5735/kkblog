@@ -1,6 +1,6 @@
 # SpringMVC第5篇 @RequestBody大解密，说点你不知道的
 
-本文由 [简悦 SimpRead](http://ksria.com/simpread/) 转码， 原文地址 [mp.weixin.qq.com](https://mp.weixin.qq.com/s?__biz=MzA5MTkxMDQ4MQ==&mid=2648940539&idx=1&sn=155ec6022fa6e6f3f96f7eb767900b02&chksm=886207c5bf158ed3873d2a3b269f832727eb4b0552a54d0a2ce7229e4bc033911e2c7e48321e&scene=178&cur_album_id=1873497824336658435#rd)
+原文地址 [mp.weixin.qq.com](https://mp.weixin.qq.com/s?__biz=MzA5MTkxMDQ4MQ==&mid=2648940539&idx=1&sn=155ec6022fa6e6f3f96f7eb767900b02&chksm=886207c5bf158ed3873d2a3b269f832727eb4b0552a54d0a2ce7229e4bc033911e2c7e48321e&scene=178&cur_album_id=1873497824336658435#rd)
 
 ## 本文内容
 
