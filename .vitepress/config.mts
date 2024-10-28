@@ -2,7 +2,7 @@ import { DefaultTheme, defineConfig } from "vitepress";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  ignoreDeadLinks:true,
+  ignoreDeadLinks: true,
   title: "KK BLOG",
   description: "powered by VitePress",
   base: "/kkblog",
@@ -34,9 +34,9 @@ export default defineConfig({
             activeMatch: "/100-docs-java/spring",
           },
           {
-            text: "SpringMVC-路人系列",
-            link: "/100-docs-java/500-springmvc/luren",
-            activeMatch: "/100-docs-java/500-springmvc/luren",
+            text: "SpringMVC",
+            link: "/100-docs-java/500-springmvc",
+            activeMatch: "/100-docs-java/500-springmvc",
           },
           {
             text: "SpringSecurity",
@@ -85,14 +85,31 @@ export default defineConfig({
         base: "/100-docs-java/spring/",
         items: javaGuideSpringSidebar(),
       },
-      "/100-docs-java/500-springmvc/luren": {
-        base: "/100-docs-java/500-springmvc/luren/",
+      "/100-docs-java/500-springmvc": {
+        base: "/100-docs-java/500-springmvc/",
         items: [
           {
-            text: "02-@Controller、@RequestMapping",
-            link: "02-@Controller、@RequestMapping",
+            text: "@RequestParam和@RequestPart",
+            link: "@RequestParam和@RequestPart",
           },
-          {text:'11-集成静态资源的多种方式',link:'11-集成静态资源的多种方式'}
+          {
+            text: "路人系列",
+            base: "/100-docs-java/500-springmvc/luren/",
+            items: [
+              {
+                text: "02-@Controller、@RequestMapping",
+                link: "02-@Controller、@RequestMapping",
+              },
+              {
+                text: "06-上传文件的 4 种方式",
+                link: "06-上传文件的 4 种方式",
+              },
+              {
+                text: "11-集成静态资源的多种方式",
+                link: "11-集成静态资源的多种方式",
+              },
+            ],
+          },
         ],
       },
       "/100-docs-java/510-spring-security": {
