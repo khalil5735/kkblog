@@ -101,9 +101,19 @@ export default defineConfig({
                 link: "02-@Controller、@RequestMapping",
               },
               {
-                text: "06-上传文件的 4 种方式",
-                link: "06-上传文件的 4 种方式",
+                text: "03-接口测试HTTP Client.md",
+                link: "03-接口测试HTTP Client.md",
               },
+              { text: "04-接收请求中的参数", link: "04-接收请求中的参数" },
+              {
+                text: "05-@RequestBody接收Json格式数据",
+                link: "05-@RequestBody接收Json格式数据",
+              },
+              {
+                text: "06-上传文件的4种方式",
+                link: "06-上传文件的4种方式",
+              },
+              {text:'07-返回视图页面常见的5种方式',link:'07-返回视图页面常见的5种方式'},
               {
                 text: "11-集成静态资源的多种方式",
                 link: "11-集成静态资源的多种方式",

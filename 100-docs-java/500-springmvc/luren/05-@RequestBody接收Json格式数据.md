@@ -1,38 +1,10 @@
 # SpringMVC第5篇 @RequestBody大解密，说点你不知道的
 
-原文地址 [mp.weixin.qq.com](https://mp.weixin.qq.com/s?__biz=MzA5MTkxMDQ4MQ==&mid=2648940539&idx=1&sn=155ec6022fa6e6f3f96f7eb767900b02&chksm=886207c5bf158ed3873d2a3b269f832727eb4b0552a54d0a2ce7229e4bc033911e2c7e48321e&scene=178&cur_album_id=1873497824336658435#rd)
-
-## 本文内容
-
-1、掌握接收 json 格式数据的使用步骤及原理
-
-2、掌握 @RequestBody 注解的用法
-
-3、**（重点）通过源码来分析控制器具体可以接收哪些参数**
-
-## 软件版本
-
-1、idea 2020.3.3
-
-2、jdk1.8
-
-3、≥maven3.6.1
-
-4、spring5.3.6
-
-5、apache-tomcat-9.0.46
-
-## json 格式数据的好处
-
-当 http 请求传输的数据格式比较复杂的时，可以采用 json 格式
-
-- 数据量更小
-- 组装数据更容易
-- 数据结构看起来更清晰
+> 原文地址 [mp.weixin.qq.com](https://mp.weixin.qq.com/s?__biz=MzA5MTkxMDQ4MQ==&mid=2648940539&idx=1&sn=155ec6022fa6e6f3f96f7eb767900b02&chksm=886207c5bf158ed3873d2a3b269f832727eb4b0552a54d0a2ce7229e4bc033911e2c7e48321e&scene=178&cur_album_id=1873497824336658435#rd)
 
 ## Http 发起 json 格式的请求
 
-1、头中需要设置 Content-Type 的值为 application/json
+1、头中需要设置 `Content-Type` 的值为 `application/json`
 
 2、请求 body 中数据格式为 json 文本
 
@@ -54,7 +26,7 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-我们希望下面这个方法可以处理这个请求，由 springmvc 负责将 body 中的 json 格式的数据转换为 UserDto 对象，然后传递给下面的 add 方法。
+我们希望下面这个方法可以处理这个请求，由 springmvc 负责将 body 中的 json 格式的数据转换为 `UserDto` 对象，然后传递给下面的 `add` 方法。
 
 ```java
 @PostMapping("/user/add.do")
@@ -112,13 +84,13 @@ jackson 是一个 json 工具包，可以将 json 格式的字符串和 java 对
 
 **这 2 个步骤配置好了之后，springmvc 就被赋予了一个强大的功能，有能力将 http 请求 body 中 json 格式的数据转换为 java 对象。**
 
-透露一下原理：springmvc 容器中被添加了一个 MappingJackson2HttpMessageConverter 对象，这个类可以将 body 中 json 格式的数据转换为 java 对象，内部用到的是 jackson。
+透露一下原理：springmvc 容器中被添加了一个 `MappingJackson2HttpMessageConverter` 对象，这个类可以将 body 中 json 格式的数据转换为 java 对象，内部用到的是 jackson。
 
-MappingJackson2HttpMessageConverter 这类就是在步骤 1 添加的 maven 包中。
+`MappingJackson2HttpMessageConverter` 这类就是在步骤 1 添加的 maven 包中。
 
 ### 步骤 3：方法参数使用 @RquestBody 注解标注
 
-当我们希望 controller 中处理器的方法参数的数据来源于 http 请求的 body 时，需要在参数的前面加上 @RequestBody 注解
+当我们希望 controller 中处理器的方法参数的数据来源于 http 请求的 body 时，需要在参数的前面加上 `@RequestBody` 注解
 
 ```java
 @PostMapping("/user/add.do")
@@ -134,33 +106,13 @@ public ModelAndView add(@RequestBody UserDto user) {
 
 就这么简单，此时这个方法就可以接受 json 格式的数据，springmvc 会自动将 body 中 json 格式的字符串转换为 UserDto 对象，然后传递给上面的 add 方法的第一个参数。
 
-### 案例代码
-
-1、拉取代码
-
-https://gitee.com/javacode2018/springmvc-series
-
-2、导入 idea
-
-![img](./assets/640-1719741031555-74.png)
-
-3、发布到 tomcat
-
-4、运行用例，用例的位置
-
-![img](./assets/640-1719741031555-75.png)
-
-输出的结果如下，可以看出 json 数据被 UserDto 接收成功了。
-
-![img](./assets/640-1719741031555-76.png)
-
 ## @RequestBody 注解
 
 ### 作用
 
 **用来接收 http 请求 body 的数据。**
 
-HTTP 请求大家比较熟悉，比如 POST 方式提交的请求，是有个 body 部分的，在 springmvc 中，我们希望控制器的方法中某个参数的值为 http 请求中的 body 的值，那么只需要在这个参数的前面加上 @RequestBody 注解，springmvc 会将 http 请求中 body 的数据读取出来，然后传递给这个参数。
+HTTP 请求大家比较熟悉，比如 POST 方式提交的请求，是有个 body 部分的，在 springmvc 中，我们希望控制器的方法中某个参数的值为 http 请求中的 body 的值，那么只需要在这个参数的前面加上 `@RequestBody` 注解，springmvc 会将 http 请求中 body 的数据读取出来，然后传递给这个参数。
 
 来看 2 个案例。
 
@@ -178,21 +130,15 @@ springmvc 会将请求中 body 部分的数据读取出来，转换为 String �
 public void m1(@RequestBody byte[] bytes);
 ```
 
-springmvc 会将请求中 body 部分的数据读取出来，然后转换为字节数组然后传递给 bytes 参数。
-
-### 2 个案例代码位置
-
-![img](./assets/640-1719741031555-77.png)
+springmvc 会将请求中 body 部分的数据读取出来，然后转换为字节数组然后传递给 `bytes` 参数。
 
 ## (重点)HandlerMethodArgumentResolver
 
-这里给大家扩展点知识，到目前我们知道可以使用 @RequestParam 接收表单的值，@RequestBody 可以接收请求中 body 的数据，@PathVariable 可以接受 url 中动态参数。
+这里给大家扩展点知识，到目前我们知道可以使用 `@RequestParam` 接收表单的值，`@RequestBody` 可以接收请求中 body 的数据，`@PathVariable` 可以接受 url 中动态参数。
 
-**那么问题来了，控制器的方法具体可以接收哪些类型的参数呢？这是个好问题**
+那么问题来了，控制器的方法具体可以接收哪些类型的参数呢？这是个好问题。说句实话，可以接收参数的类型非常的多，这里我教大家大家一招，看看 springmvc 具体可以接受哪些类型的参数。
 
-**说句实话，可以接收参数的类型非常的多，这里我教大家大家一招，看看 springmvc 具体可以接受哪些类型的参数。**
-
-这里只需要掌握一个关键的接口就可以了：**HandlerMethodArgumentResolver（控制器方法参数解析器）**，这个接口特别重要，负责将 http 请求中的数据转换为 controller 中的方法能够接收的数据，就是根据控制器中方法参数信息，将 http 请求中的信息，转换控制器方法需要的参数的值。
+这里只需要掌握一个关键的接口就可以了： `HandlerMethodArgumentResolver` （控制器方法参数解析器），这个接口特别重要，负责将 http 请求中的数据转换为 controller 中的方法能够接收的数据，就是根据控制器中方法参数信息，将 http 请求中的信息，转换控制器方法需要的参数的值。
 
 这个接口有 2 个方法大家需要掌握
 
