@@ -63,6 +63,10 @@ export default defineConfig({
             link: "/100-docs-java/jersey/",
             activeMatch: "/100-docs-java/jersey",
           },
+          {
+            text: "阿里巴巴开发规范",
+            link: "/100-docs-java/阿里巴巴开发规范",
+          },
         ],
       },
       {
@@ -217,7 +221,16 @@ function springbootGuideSidebar(base: String): DefaultTheme.SidebarItem[] {
           link: "核心-09-原理解析",
         },
       ],
-    },
+    },{
+      text:'SpringBoot中war包在tomcat下启动原理',
+      link:'SpringBoot中war包在tomcat下启动原理',
+    },{
+      text:'SpringBoot应用构建为War包部署到外部服务器',
+      link:'SpringBoot应用构建为War包部署到外部服务器',
+    },{
+      text:'SpringBoot内置工具类',
+      link:'SpringBoot内置工具类',
+    }
   ];
 }
 
