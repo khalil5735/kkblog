@@ -44,6 +44,11 @@ export default defineConfig({
             activeMatch: "/100-docs-java/510-spring-security",
           },
           {
+            text: "SpringBoot",
+            link: "/100-docs-java/600-springboot/",
+            activeMatch: "/100-docs-java/600-springboot",
+          },
+          {
             text: "数据库框架",
             link: "/100-docs-java/db-framework/",
             activeMatch: "/100-docs-java/db-framework",
@@ -93,8 +98,8 @@ export default defineConfig({
             link: "@RequestParam和@RequestPart",
           },
           {
-            text:"RequestContextHolder",
-            link:'RequestContextHolder',
+            text: "RequestContextHolder",
+            link: "RequestContextHolder",
           },
           {
             text: "路人系列",
@@ -117,7 +122,10 @@ export default defineConfig({
                 text: "06-上传文件的4种方式",
                 link: "06-上传文件的4种方式",
               },
-              {text:'07-返回视图页面常见的5种方式',link:'07-返回视图页面常见的5种方式'},
+              {
+                text: "07-返回视图页面常见的5种方式",
+                link: "07-返回视图页面常见的5种方式",
+              },
               {
                 text: "11-集成静态资源的多种方式",
                 link: "11-集成静态资源的多种方式",
@@ -133,6 +141,10 @@ export default defineConfig({
           { text: "认识Autho2.0", link: "/认识Autho2.0" },
           { text: "SpringSecurity实战", link: "/SpringSecurity实战" },
         ],
+      },
+      "/100-docs-java/600-springboot/": {
+        base: "/100-docs-java/600-springboot/",
+        items: springbootGuideSidebar("/100-docs-java/600-springboot/"),
       },
       "/100-docs-java/java8/": {
         base: "/100-docs-java/java8/",
@@ -161,6 +173,53 @@ export default defineConfig({
     ],
   },
 });
+
+function springbootGuideSidebar(base: String): DefaultTheme.SidebarItem[] {
+  return [
+    {
+      text: "leifengyang系列",
+      base: base + "/lfy/",
+      items: [
+        {
+          text: "基础01-Spring与SpringBoot",
+          link: "基础01-Spring与SpringBoot",
+        },
+        {
+          text: "基础-02-入springboot2入门",
+          link: "基础-02-入springboot2入门",
+        },
+        {
+          text: "基础-03-了解自动配置原理",
+          link: "基础-03-了解自动配置原理",
+        },
+        {
+          text: "核心-04-配置文件",
+          link: "核心-04-配置文件",
+        },
+        {
+          text: "核心-05-web开发",
+          link: "核心-05-web开发",
+        },
+        {
+          text: "核心-06-数据访问",
+          link: "核心-06-数据访问",
+        },
+        {
+          text: "核心-07-单元测试",
+          link: "核心-07-单元测试",
+        },
+        {
+          text: "核心-08-指标监控",
+          link: "核心-08-指标监控",
+        },
+        {
+          text: "核心-09-原理解析",
+          link: "核心-09-原理解析",
+        },
+      ],
+    },
+  ];
+}
 
 function exampleGuideSidebar(): DefaultTheme.SidebarItem[] {
   return [
