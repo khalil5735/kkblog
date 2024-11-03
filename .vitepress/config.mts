@@ -93,6 +93,10 @@ export default defineConfig({
             link: "@RequestParam和@RequestPart",
           },
           {
+            text:"RequestContextHolder",
+            link:'RequestContextHolder',
+          },
+          {
             text: "路人系列",
             base: "/100-docs-java/500-springmvc/luren/",
             items: [
