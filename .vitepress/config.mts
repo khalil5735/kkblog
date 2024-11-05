@@ -54,11 +54,6 @@ export default defineConfig({
             activeMatch: "/100-docs-java/db-framework",
           },
           {
-            text: "中间件-RabbitMQ",
-            link: "/100-docs-java/810-中间件-RabbitMQ/",
-            activeMatch: "/100-docs-java/810-中间件-RabbitMQ",
-          },
-          {
             text: "Jersey",
             link: "/100-docs-java/jersey/",
             activeMatch: "/100-docs-java/jersey",
@@ -73,6 +68,21 @@ export default defineConfig({
         text: "大前端",
         link: "/200-docs-front/",
         activeMatch: "/200-docs-front/",
+      },
+      {
+        text: "中间件",
+        items: [
+          {
+            text: "Redis",
+            link: "/300-docs-middleware/01-redis/",
+            activeMatch: "/300-docs-middleware/01-redis/",
+          },
+          {
+            text: "RabbitMQ",
+            link: "/300-docs-middleware/810-中间件-RabbitMQ/",
+            activeMatch: "/300-docs-middleware/810-中间件-RabbitMQ",
+          },
+        ],
       },
       {
         text: "百宝箱",
@@ -162,9 +172,13 @@ export default defineConfig({
         base: "/100-docs-java/jersey/",
         items: javaGuideJerseySidebar("/100-docs-java/jersey/"),
       },
-      "/100-docs-java/810-中间件-RabbitMQ": {
-        base: "/100-docs-java/810-中间件-RabbitMQ/",
+      "/300-docs-middleware/810-中间件-RabbitMQ": {
+        base: "/300-docs-middleware/810-中间件-RabbitMQ/",
         items: [{ text: "RabbitMQ", link: "/RabbitMQ" }],
+      },
+      "/300-docs-middleware/01-redis/": {
+        base: "/300-docs-middleware/01-redis/",
+        items: [{ text: "Redis中5种数据类型", link: "Redis中5种数据类型" }],
       },
       // "/500-docs-tools/": {
       //   base: "/500-docs-tools/",
@@ -221,16 +235,19 @@ function springbootGuideSidebar(base: String): DefaultTheme.SidebarItem[] {
           link: "核心-09-原理解析",
         },
       ],
-    },{
-      text:'SpringBoot中war包在tomcat下启动原理',
-      link:'SpringBoot中war包在tomcat下启动原理',
-    },{
-      text:'SpringBoot应用构建为War包部署到外部服务器',
-      link:'SpringBoot应用构建为War包部署到外部服务器',
-    },{
-      text:'SpringBoot内置工具类',
-      link:'SpringBoot内置工具类',
-    }
+    },
+    {
+      text: "SpringBoot中war包在tomcat下启动原理",
+      link: "SpringBoot中war包在tomcat下启动原理",
+    },
+    {
+      text: "SpringBoot应用构建为War包部署到外部服务器",
+      link: "SpringBoot应用构建为War包部署到外部服务器",
+    },
+    {
+      text: "SpringBoot内置工具类",
+      link: "SpringBoot内置工具类",
+    },
   ];
 }
 
