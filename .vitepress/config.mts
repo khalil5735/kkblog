@@ -30,7 +30,7 @@ export default defineConfig({
           },
           {
             text: "Spring",
-            link: "/100-docs-java/spring/core/Bean的生命周期回调",
+            link: "/100-docs-java/300-spring/core/Bean的生命周期回调",
             activeMatch: "/100-docs-java/spring",
           },
           {
@@ -100,9 +100,9 @@ export default defineConfig({
       //   base: "/100-docs-java/",
       //   items: javaGuideSidebar("/100-docs-java/"),
       // },
-      "/100-docs-java/spring/": {
-        base: "/100-docs-java/spring/",
-        items: javaGuideSpringSidebar(),
+      "/100-docs-java/300-spring/": {
+        base: "/100-docs-java/300-spring/",
+        items: javaGuideSpringSidebar("/100-docs-java/300-spring/"),
       },
       "/100-docs-java/500-springmvc": {
         base: "/100-docs-java/500-springmvc/",
@@ -338,11 +338,11 @@ function javaGuideJava8Sidebar(): DefaultTheme.SidebarItem[] {
   ];
 }
 
-function javaGuideSpringSidebar(): DefaultTheme.SidebarItem[] {
+function javaGuideSpringSidebar(base: string): DefaultTheme.SidebarItem[] {
   return [
     {
       text: "Spring Core",
-      base: "/100-docs-java/spring/core",
+      base: "/100-docs-java/300-spring/core",
       collapsed: false,
       items: [{ text: "Bean的生命周期回调", link: "/Bean的生命周期回调" }],
     },
@@ -351,8 +351,22 @@ function javaGuideSpringSidebar(): DefaultTheme.SidebarItem[] {
       link: "/整合/spring整合email",
     },
     {
+      text: "Spring Cache",
+      base: base + "/springcache/",
+      items: [
+        { text: "快速开始", link: "快速开始" },
+        { text: "自定义缓存键", link: "自定义缓存键" },
+        { text: "条件性缓存", link: "条件性缓存" },
+        { text: "同步缓存", link: "同步缓存" },
+        { text: "配置缓存存储", link: "配置缓存存储" },
+        {text:'JCache (JSR-107) 注解',link:'JCache (JSR-107) 注解'},
+        { text: "最佳实践", link: "最佳实践" },
+        { text: "常见问题", link: "常见问题" },
+      ],
+    },
+    {
       text: "Spring Other",
-      base: "/100-docs-java/spring/",
+      base: "/100-docs-java/300-spring/",
       collapsed: false,
       items: [
         { text: "Spring JDBC", link: "/spring-jdbc" },
