@@ -1,0 +1,4 @@
+/* 配置代码块自动换行 */
+.vp-doc [class*='language-'] code {
+    white-space: break-spaces;
+}

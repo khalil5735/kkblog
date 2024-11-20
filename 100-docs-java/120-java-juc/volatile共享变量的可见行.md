@@ -1,10 +1,8 @@
+# volatile共享变量的可见行
+
 ## 多线程下共享变量的不可见性
 
-### 概括
-
 在多线程并发执行下，多个线程修改共享的成员变量，会出现一个线程修改了共享变量的值后，另一个线程不能直接看到该线程修改后的变量的最新值。
-
-### 案例演示
 
 ```java
 public class MyThread extends Thread {
@@ -51,15 +49,9 @@ public class VolatileThreadDemo {
 
 fi语句中执行，所以没有任何打印。
 
+原因：多线程下修改共享变量会出现变量修改值后的不可见性。
 
-
-### 小结
-
-多线程下修改共享变量会出现变量修改值后的不可见性。
-
-
-
-## 变量不可见性
+## 共享变量不可见性
 
 ### Java内存模型关于共享变量的存储
 
@@ -70,13 +62,11 @@ Java内存模型有以下规定：
 - 线程对变量的所有的操作 (读，取)都必须在工作内存中完成，而不能直接读写主内存中的变量。
 - 不同线程之间也不能直接访问对方工作内存中的变量，线程间变量的值的传递需要通过主内存中转来完成。
 
-
-
-**本地内存和主内存的关系**
+### 本地内存和主内存的关系
 
 ![img](./assets/1648171734027-3d9425da-df22-4d7b-9c07-ec23afeff483.png)
 
-**问题分析**
+### 问题分析
 
 ![img](./assets/1648171759383-59e66926-5c41-414f-8dda-fe1cd59a1b4e.png)
 
@@ -84,33 +74,26 @@ Java内存模型有以下规定：
 2. 在子线程t的工作内存中，将flag的值修改为true，此时，还没有将flag的值回写到主内存；（此时main方法读取到的值是false）
 3. 当子线程t将flag的值写回去。但是main函数里面的while(true)调用的是系统比较底层的代码，速度快，快到没有时间再去读取主存中的值；
 
-
-
-所以while(true)读取到的值一直是false。(如果有一个时刻main线程从主内存中读取到了主内存中flag的最新
-
-值，那么if语句就可以执行，main线程何时从主内存中读取最新的值，我们无法控制)
-
-
+所以while(true)读取到的值一直是false。(如果有一个时刻main线程从主内存中读取到了主内存中flag的最新值，那么if语句就可以执行，main线程何时从主内存中读取最新的值，我们无法控制)
 
 ### 小结
 
 可见性问题产生的原因：所有共享变量存在于主内存中，每个线程由自己的工作内存，而且线程读写共享数据也是通过工作内存交换的，所以才导致了可见性问题。
 
-
-
 ## 使用volatile关键字解决变量不可见性
 
 ### 使用volatile关键字修饰共享变量
 
+```java
 private volatile boolean flag = false;
-
-
+```
 
 修改后测试代码：
 
 ```java
 public class MyThread extends Thread {
 
+    // 使用 volatile 修饰共享变量
     private volatile boolean flag = false;
 
     @Override
@@ -143,13 +126,11 @@ public class VolatileThreadDemo {
 }
 ```
 
-
-
 测试效果：
 
 ![img](./assets/1648171802412-428351f4-ccd6-49e6-a083-20a6f1091797.png)
 
-**工作原理**
+### 工作原理
 
 ![img](./assets/1648171811313-13defaee-78a1-4144-801a-bfa491d4b693.png)
 
@@ -157,20 +138,16 @@ public class VolatileThreadDemo {
 2. main线程从主内存中读取的数据放入其对应的工作内容中，flag的值为false；
 3. 子线程t中将flag的值修改为true,但是这个时候flag的值还没有写回主内存；
 4. 子线程t中的flag值回写到主内存中；
-5. **失效其他线程对flag变量副本，比如main线程中flag值；**
-6. **main线程再次读取flag变量时需要从主内存中读取最新的值，放入到工作内存中；**
+5. 失效其他线程对flag变量副本，比如main线程中flag值
+6. main线程再次读取flag变量时需要从主内存中读取最新的值，放入到工作内存中
 
 ### 小结
 
-volatile保证不同线程对共享变量操作的可见性，也就是说一个线程修改了volatile修饰的变量，当修改
+volatile保证不同线程对共享变量操作的可见性，也就是说一个线程修改了volatile修饰的变量，当修改写回主内存时，另外一个线程立即看到最新的值。
 
-写回主内存时，另外一个线程立即看到最新的值。
+## volatile不具有原子性
 
-
-
-## volatile不具有原子性，不具备同步性
-
-volatile关键字虽然增加了共享变量的可见性，但不具备同步性，不具有原子性。
+volatile关键字虽然增加了共享变量的可见性，但不具有原子性。
 
 所谓的原子性是指在一次操作或者多次操作中，要么所有的操作全部都得到了执行并且不会受到任何因素的干扰而中断，要么所有的操作都不执行。volatile不保证原子性。
 
@@ -217,9 +194,7 @@ count++操作包含3个步骤：
 2. 对工作内存中的数据进行 ++操作
 3. 将工作内存中的数据写回到主内存
 
-
-
-count++操作不是一个原子性操作，也就是说在某一个时刻对某一个操作的执行，有可能被其他的线程打断。
+count++ 操作不是一个原子性操作，也就是说在某一个时刻对某一个操作的执行，有可能被其他的线程打断。
 
 ![img](./assets/1648171902416-e8788a53-deb2-4bec-a575-64ae009c2676.png)
 
@@ -233,66 +208,3 @@ count++操作不是一个原子性操作，也就是说在某一个时刻对某�
 虽然计算了2次，但是只对A进行了1次修改。
 
 在多线程环境下，volatile关键字可以保证共享数据的可见性，但是并不能保证对数据操作的原子性（在多线程环境下volatile修饰的变量也是线程不安全的）。
-
-在多线程环境下，要保证数据的安全性，我们还需要使用锁机制。
-
-我们可以给count++操作添加锁，那么count++操作就是临界区的代码，临界区只能有一个线程去执行，所以
-
-count++就变成了原子操作。
-
-```java
-public class VolatileAtomicThread implements Runnable {
-
-    private volatile int count = 0;
-
-    @Override
-    public void run() {
-        for (int i=0;i<100;i++){
-            synchronized (this) {
-                count++;
-                System.out.println("count=" + count);
-            }
-        }
-    }
-}
-```
-
-
-
-**原子类**
-
-概述：java从JDK1.5开始提供了java.util.concurrent.atomic包(简称Atomic包)，这个包中的原子操作类提供了一种用法简单，性能高效，线程安全地更新一个变量的方式。
-
-**AtomicInteger**
-
-原子型Integer，可以实现原子更新操作
-
-```java
-public AtomicInteger()：  初始化一个默认值为0的原子型Integer
-public AtomicInteger(int initialValue)： 初始化一个指定值的原子型Integer
-int get():  获取值
-int getAndIncrement():   以原子方式将当前值加1，注意，这里返回的是自增前的值。
-int incrementAndGet():   以原子方式将当前值加1，注意，这里返回的是自增后的值。
-int addAndGet(int data): 以原子方式将输入的数值与实例中的值（AtomicInteger里的
-value）相加，并返回结果。
-int getAndSet(int value):  以原子方式设置为newValue的值，并返回旧值。
-```
-
-演示基本使用:
-
-```java
-public class VolatileAtomicThread implements Runnable {
-
-    private volatile int count = 0;
-
-    @Override
-    public void run() {
-        for (int i=0;i<100;i++){
-            synchronized (this) {
-                count++;
-                System.out.println("count=" + count);
-            }
-        }
-    }
-}
-```

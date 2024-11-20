@@ -29,6 +29,11 @@ export default defineConfig({
             activeMatch: "/100-docs-java/java8",
           },
           {
+            text: "JUC",
+            link: "/100-docs-java/120-java-juc/",
+            activeMatch: "/100-docs-java/120-java-juc/",
+          },
+          {
             text: "Spring",
             link: "/100-docs-java/300-spring/core/Bean的生命周期回调",
             activeMatch: "/100-docs-java/spring",
@@ -47,6 +52,11 @@ export default defineConfig({
             text: "SpringBoot",
             link: "/100-docs-java/600-springboot/",
             activeMatch: "/100-docs-java/600-springboot",
+          },
+          {
+            text: "SpringCloud",
+            link: "/100-docs-java/700-springcloud/",
+            activeMatch: "/100-docs-java/700-springcloud",
           },
           {
             text: "数据库框架",
@@ -100,6 +110,17 @@ export default defineConfig({
       //   base: "/100-docs-java/",
       //   items: javaGuideSidebar("/100-docs-java/"),
       // },
+      "/100-docs-java/120-java-juc/": {
+        base: "/100-docs-java/120-java-juc/",
+        items: [
+          { text: "java内存模型", link: "JMM" },
+          { text: "volatile共享变量的可见行", link: "volatile共享变量的可见行" },
+          {
+            text: "JUC中的阻塞队列",
+            link: "JUC中的阻塞队列",
+          },
+        ],
+      },
       "/100-docs-java/300-spring/": {
         base: "/100-docs-java/300-spring/",
         items: javaGuideSpringSidebar("/100-docs-java/300-spring/"),
@@ -159,6 +180,10 @@ export default defineConfig({
       "/100-docs-java/600-springboot/": {
         base: "/100-docs-java/600-springboot/",
         items: springbootGuideSidebar("/100-docs-java/600-springboot/"),
+      },
+      "/100-docs-java/700-springcloud": {
+        base: "/100-docs-java/700-springcloud/",
+        items: [],
       },
       "/100-docs-java/java8/": {
         base: "/100-docs-java/java8/",
@@ -359,7 +384,7 @@ function javaGuideSpringSidebar(base: string): DefaultTheme.SidebarItem[] {
         { text: "条件性缓存", link: "条件性缓存" },
         { text: "同步缓存", link: "同步缓存" },
         { text: "配置缓存存储", link: "配置缓存存储" },
-        {text:'JCache (JSR-107) 注解',link:'JCache (JSR-107) 注解'},
+        { text: "JCache (JSR-107) 注解", link: "JCache (JSR-107) 注解" },
         { text: "最佳实践", link: "最佳实践" },
         { text: "常见问题", link: "常见问题" },
       ],

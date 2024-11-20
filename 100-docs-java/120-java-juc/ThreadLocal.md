@@ -4,8 +4,6 @@
 
 **使用 ThreadLocal** 
 
-
-
 类ThreadLocal主要解决的就是每个线程绑定自己的值，可以将ThreadLocal类比喻成全局存放数据的盒子，盒子中可以存储每个线程的私有数据。
 
 ## 设置值与取值
@@ -112,7 +110,7 @@ ThreadA获取值：ThreadA9
 创建子类重写 ThreadLocal 的 initialValue() 方法；
 
 ```java
-    protected T initialValue() {
-        return null;
-    }
+protected T initialValue() {
+    return null;
+}
 ```
