@@ -113,8 +113,12 @@ export default defineConfig({
       "/100-docs-java/120-java-juc/": {
         base: "/100-docs-java/120-java-juc/",
         items: [
+          { text: "可见性、原子性和有序性", link: "02-可见性、原子性和有序性" },
           { text: "java内存模型", link: "JMM" },
-          { text: "volatile共享变量的可见行", link: "volatile共享变量的可见行" },
+          {
+            text: "volatile共享变量的可见行",
+            link: "volatile共享变量的可见行",
+          },
           {
             text: "JUC中的阻塞队列",
             link: "JUC中的阻塞队列",
