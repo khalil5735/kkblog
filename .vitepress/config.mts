@@ -137,8 +137,22 @@ export default defineConfig({
             link: "@RequestParam和@RequestPart",
           },
           {
+            text: "拦截器",
+            link: "拦截器",
+          },
+          {
             text: "RequestContextHolder",
             link: "RequestContextHolder",
+          },
+          {
+            text: "Atguigu",
+            base: "/100-docs-java/500-springmvc/atguigu2024/",
+            items: [
+              {
+                text: "10-拦截器",
+                link: "10-拦截器",
+              },
+            ],
           },
           {
             text: "路人系列",
