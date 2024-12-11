@@ -152,6 +152,10 @@ export default defineConfig({
                 text: "10-拦截器",
                 link: "10-拦截器",
               },
+              {
+                text: "11-异常处理器",
+                link: "11-异常处理器",
+              },
             ],
           },
           {
