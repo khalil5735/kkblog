@@ -149,12 +149,56 @@ export default defineConfig({
             base: "/100-docs-java/500-springmvc/atguigu2024/",
             items: [
               {
+                text: "01-SpringMVC简介",
+                link: "01-SpringMVC简介",
+              },
+              {
+                text: "02-HelloWorld",
+                link: "02-HelloWorld",
+              },
+              {
+                text: "03-@RequestMapping注解",
+                link: "03-@RequestMapping注解",
+              },
+              {
+                text: "04-SpringMVC获取请求参数",
+                link: "04-SpringMVC获取请求参数",
+              },
+              {
+                link: "05-域对象共享数据",
+                text: "05-域对象共享数据",
+              },
+              {
+                text: "06-SpringMVC的视图",
+                link: "06-SpringMVC的视图",
+              },
+              {
+                text: "07-RESTful",
+                link: "07-RESTful",
+              },
+              {
+                text: "08-HttpMessageConverter",
+                link: "08-HttpMessageConverter",
+              },
+              {
+                text: "09-文件的上传与下载",
+                link: "09-文件的上传与下载",
+              },
+              {
                 text: "10-拦截器",
                 link: "10-拦截器",
               },
               {
                 text: "11-异常处理器",
                 link: "11-异常处理器",
+              },
+              {
+                text: "12-注解配置SpringMVC",
+                link: "12-注解配置SpringMVC",
+              },
+              {
+                text: "13-SpringMVC执行流程",
+                link: "13-SpringMVC执行流程",
               },
             ],
           },
