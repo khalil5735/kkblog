@@ -1,94 +1,84 @@
-[web.xml详解 及 web.xml模板 - mellisa&myt - 博客园](https://www.cnblogs.com/mytJava/p/13143449.html)
 
-[web.xml文件的作用及基本配置](https://www.jianshu.com/p/285ad45f60d1)
-
-[springmvc--拦截器的preHandler返回false后的执行顺序 - Gavin_Yi - 博客园](https://www.cnblogs.com/gavin2016/p/6553880.html)
-
-
-
-路人甲java # SpringMVC 系列
-
-
-# 文件上传
+# SpringMVC文件上传
 
 ## 环境准备
 
 ### 依赖引入
 
 ```xml
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-webmvc</artifactId>
-            <version>5.3.23</version>
-        </dependency>
+<dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-webmvc</artifactId>
+    <version>5.3.23</version>
+</dependency>
 
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
-            <version>4.0.1</version>
-        </dependency>
+<dependency>
+    <groupId>javax.servlet</groupId>
+    <artifactId>javax.servlet-api</artifactId>
+    <version>4.0.1</version>
+</dependency>
 <!--        文件上传需要的依赖-->
-        <dependency>
-            <groupId>commons-io</groupId>
-            <artifactId>commons-io</artifactId>
-            <version>2.4</version>
-        </dependency>
+<dependency>
+    <groupId>commons-io</groupId>
+    <artifactId>commons-io</artifactId>
+    <version>2.4</version>
+</dependency>
 
-        <!--        文件上传需要的依赖-->
-        <dependency>
-            <groupId>commons-fileupload</groupId>
-            <artifactId>commons-fileupload</artifactId>
-            <version>1.4</version>
-        </dependency>
+<!--        文件上传需要的依赖-->
+<dependency>
+    <groupId>commons-fileupload</groupId>
+    <artifactId>commons-fileupload</artifactId>
+    <version>1.4</version>
+</dependency>
 ```
 
 ### 定义 Spring Bean MultipartResolver 
 
 ```xml
-    // 声明一个 MultipartResolver 的实现bean,并且设置Bean id 为 multipartResolver
-    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-        <property name="defaultEncoding" value="UTF-8"/>
-        <property name="maxUploadSize" value="5242880"/>
-    </bean>
+// 声明一个 MultipartResolver 的实现bean,并且设置Bean id 为 multipartResolver
+<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+    <property name="defaultEncoding" value="UTF-8"/>
+    <property name="maxUploadSize" value="5242880"/>
+</bean>
 ```
 
 ## 单文件上传
 
 ```java
-    @PostMapping("singleUpload")
-    @ResponseBody
-    public void upload(MultipartFile file, String username, Integer age) {
-        System.out.println("username = " + username);
-        System.out.println("age = " + age);
-        System.out.println(file.getOriginalFilename());
-        System.out.println(file.getSize());
-        System.out.println(file.getContentType());
-        System.out.println(file.getName());
-        try {
-            file.transferTo(new File("E:\\test\\" + file.getOriginalFilename()));
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+@PostMapping("singleUpload")
+@ResponseBody
+public void upload(MultipartFile file, String username, Integer age) {
+    System.out.println("username = " + username);
+    System.out.println("age = " + age);
+    System.out.println(file.getOriginalFilename());
+    System.out.println(file.getSize());
+    System.out.println(file.getContentType());
+    System.out.println(file.getName());
+    try {
+        file.transferTo(new File("E:\\test\\" + file.getOriginalFilename()));
+    } catch (IOException e) {
+        throw new RuntimeException(e);
     }
+}
 ```
 
 ## 多文件上传
 
 ```java
-    @PostMapping("multiUpload")
-    @ResponseBody
-    public void upload(MultipartFile file1, MultipartFile file2, String username, Integer age) {
-        System.out.println("username = " + username);
-        System.out.println("age = " + age);
-        System.out.println("file1.getOriginalFilename() = " + file1.getOriginalFilename());
-        System.out.println("file2.getOriginalFilename() = " + file2.getOriginalFilename());
-        try {
-            file1.transferTo(new File("E:\\test\\" + file1.getOriginalFilename()));
-            file2.transferTo(new File("E:\\test\\" + file2.getOriginalFilename()));
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+@PostMapping("multiUpload")
+@ResponseBody
+public void upload(MultipartFile file1, MultipartFile file2, String username, Integer age) {
+    System.out.println("username = " + username);
+    System.out.println("age = " + age);
+    System.out.println("file1.getOriginalFilename() = " + file1.getOriginalFilename());
+    System.out.println("file2.getOriginalFilename() = " + file2.getOriginalFilename());
+    try {
+        file1.transferTo(new File("E:\\test\\" + file1.getOriginalFilename()));
+        file2.transferTo(new File("E:\\test\\" + file2.getOriginalFilename()));
+    } catch (IOException e) {
+        throw new RuntimeException(e);
     }
+}
 ```
 
 ## 通过 `MultipartHttpServletRequest` 处理文件上传
@@ -125,25 +115,25 @@
 ## 通过自定义对象接收上传的文件
 
 ```java
-    @PostMapping("upload4")
-    @ResponseBody
-    public void upload(FormInput input) {
-        String username = input.getUsername();
-        System.out.println("username = " + username);
-        Integer age = input.getAge();
-        System.out.println("age = " + age);
+@PostMapping("upload4")
+@ResponseBody
+public void upload(FormInput input) {
+    String username = input.getUsername();
+    System.out.println("username = " + username);
+    Integer age = input.getAge();
+    System.out.println("age = " + age);
 
-        MultipartFile file1 = input.getFile1();
-        System.out.println("file1.getOriginalFilename() = " + file1.getOriginalFilename());
-        MultipartFile file2 = input.getFile2();
-        System.out.println("file2.getOriginalFilename() = " + file2.getOriginalFilename());
-        try {
-            file1.transferTo(new File("E:\\test\\" + file1.getOriginalFilename()));
-            file2.transferTo(new File("E:\\test\\" + file2.getOriginalFilename()));
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+    MultipartFile file1 = input.getFile1();
+    System.out.println("file1.getOriginalFilename() = " + file1.getOriginalFilename());
+    MultipartFile file2 = input.getFile2();
+    System.out.println("file2.getOriginalFilename() = " + file2.getOriginalFilename());
+    try {
+        file1.transferTo(new File("E:\\test\\" + file1.getOriginalFilename()));
+        file2.transferTo(new File("E:\\test\\" + file2.getOriginalFilename()));
+    } catch (IOException e) {
+        throw new RuntimeException(e);
     }
+}
 ```
 
 

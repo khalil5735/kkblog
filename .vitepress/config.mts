@@ -137,8 +137,20 @@ export default defineConfig({
             link: "@RequestParam和@RequestPart",
           },
           {
+            text: "SpringMVC文件上传",
+            link: "SpringMVC文件上传",
+          },
+          {
             text: "拦截器",
             link: "拦截器",
+          },
+          {
+            text: "DispatcherServlet初始化过程",
+            link: "DispatcherServlet初始化过程",
+          },
+          {
+            text: "DispatcherServlet请求处理流程",
+            link: "DispatcherServlet请求处理流程",
           },
           {
             text: "RequestContextHolder",
@@ -233,6 +245,10 @@ export default defineConfig({
               },
             ],
           },
+          {
+            text:'SpringMVC中方法Hanlder的注册过程',
+            link:'SpringMVC中方法Hanlder的注册过程',
+          }
         ],
       },
       "/100-docs-java/510-spring-security": {
