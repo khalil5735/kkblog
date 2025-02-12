@@ -69,6 +69,11 @@ export default defineConfig({
             activeMatch: "/100-docs-java/jersey",
           },
           {
+            text: "实践项目",
+            link: "/100-docs-java/999-atiguigu-sz/",
+            activeMatch: "/100-docs-java/999-atiguigu-sz/",
+          },
+          {
             text: "阿里巴巴开发规范",
             link: "/100-docs-java/阿里巴巴开发规范",
           },
@@ -246,8 +251,18 @@ export default defineConfig({
             ],
           },
           {
-            text:'SpringMVC中方法Hanlder的注册过程',
-            link:'SpringMVC中方法Hanlder的注册过程',
+            text: "SpringMVC中方法Hanlder的注册过程",
+            link: "SpringMVC中方法Hanlder的注册过程",
+          },
+          {
+            text:'Swagger',
+            base:'/100-docs-java/500-springmvc/swagger/',
+            items:[
+              {
+                text:'概述',
+                link:'index',
+              }
+            ]
           }
         ],
       },
@@ -278,6 +293,10 @@ export default defineConfig({
       "/100-docs-java/jersey/": {
         base: "/100-docs-java/jersey/",
         items: javaGuideJerseySidebar("/100-docs-java/jersey/"),
+      },
+      "/100-docs-java/999-atiguigu-sz/": {
+        base: "/100-docs-java/999-atiguigu-sz/",
+        items: [],
       },
       "/300-docs-middleware/810-中间件-RabbitMQ": {
         base: "/300-docs-middleware/810-中间件-RabbitMQ/",
@@ -449,9 +468,15 @@ function javaGuideSpringSidebar(base: string): DefaultTheme.SidebarItem[] {
   return [
     {
       text: "Spring Core",
-      base: "/100-docs-java/300-spring/core",
+      base: "/100-docs-java/300-spring/core/",
       collapsed: false,
-      items: [{ text: "Bean的生命周期回调", link: "/Bean的生命周期回调" }],
+      items: [
+        { text: "Bean的生命周期回调", link: "/Bean的生命周期回调" },
+        {
+          text: "Bean生命周期",
+          link: "Bean生命周期",
+        },
+      ],
     },
     {
       text: "Spring整合邮件",
