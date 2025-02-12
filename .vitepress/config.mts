@@ -59,11 +59,6 @@ export default defineConfig({
             activeMatch: "/100-docs-java/700-springcloud",
           },
           {
-            text: "数据库框架",
-            link: "/100-docs-java/db-framework/",
-            activeMatch: "/100-docs-java/db-framework",
-          },
-          {
             text: "Jersey",
             link: "/100-docs-java/jersey/",
             activeMatch: "/100-docs-java/jersey",
@@ -286,10 +281,6 @@ export default defineConfig({
         base: "/100-docs-java/java8/",
         items: javaGuideJava8Sidebar(),
       },
-      "/100-docs-java/db-framework/": {
-        base: "/100-docs-java/db-framework/",
-        items: javaGuideDbFramworkSidebar("/100-docs-java/db-framework/"),
-      },
       "/100-docs-java/jersey/": {
         base: "/100-docs-java/jersey/",
         items: javaGuideJerseySidebar("/100-docs-java/jersey/"),
@@ -506,39 +497,6 @@ function javaGuideSpringSidebar(base: string): DefaultTheme.SidebarItem[] {
         { text: "Spring Message", link: "/spring-message" },
         { text: "Spring Transaction", link: "/spring-transaction" },
       ],
-    },
-  ];
-}
-
-function javaGuideDbFramworkSidebar(base): DefaultTheme.SidebarItem[] {
-  return [
-    {
-      text: "JDBC",
-      base: base + "/jdbc/",
-      items: [
-        { text: "jdbc", link: "01-jdbc" },
-        { text: "jdbc连接池", link: "02-jdbc-connection-pool" },
-        { text: "Spring整合jdbc", link: "03-spring-jdbc" },
-      ],
-    },
-    {
-      text: "Mybatis",
-      base: base + "/mybatis/",
-      items: [{ text: "尚硅谷-Mybatis", link: "atguigu-mybatis" }],
-    },
-    {
-      text: "Hibernate",
-      base: base + "/hibernate/",
-      items: [],
-    },
-    {
-      text: "JPA",
-      base: base + "/jpa/",
-      items: [],
-    },
-    {
-      text: "Spring中事务支持",
-      link: "spring-tx",
     },
   ];
 }
