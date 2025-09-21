@@ -1,8 +1,9 @@
 import { DefaultTheme } from "vitepress";
 import doce_java_jvm from "../sub_conf/docs_java_jvm";
-import docs_tools from "../sub_conf/docs_tools";
 import docs_middleware_redis from "../sub_conf/docs_middleware_redis";
 import docs_middleware_rabbitmq from "../sub_conf/docs_middleware_rabbitmq";
+
+
 
 let nav: DefaultTheme.NavItem[] = [
   { text: "首页", link: "/" },
@@ -24,6 +25,10 @@ let nav: DefaultTheme.NavItem[] = [
         text: "JUC",
         link: "/100-docs-java/120-java-juc/",
         activeMatch: "/100-docs-java/120-java-juc/",
+      },
+      {
+        text: "Http",
+        link: "/100-docs-java/170-http/",
       },
       doce_java_jvm.nav,
       {
@@ -67,7 +72,10 @@ let nav: DefaultTheme.NavItem[] = [
       },
     ],
   },
-  docs_tools.nav,
+  {
+    text:"百宝箱",
+    link:"/500-docs-tools/",
+  },
   {
     text: "大前端",
     link: "/200-docs-front/",
