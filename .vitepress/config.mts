@@ -1,5 +1,8 @@
 import { DefaultTheme, defineConfig } from "vitepress";
 
+import sidebar from "./sidebar";
+import nav from "./nav";
+
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   ignoreDeadLinks: true,
@@ -13,103 +16,9 @@ export default defineConfig({
     },
 
     // https://vitepress.dev/reference/default-theme-config
-    nav: [
-      { text: "首页", link: "/" },
-      {
-        text: "JAVA",
-        items: [
-          {
-            text: "java 基础",
-            link: "/100-docs-java/搭建java开发环境",
-            activeMatch: "/100-docs-java/java-basic",
-          },
-          {
-            text: "java8",
-            link: "/100-docs-java/java8",
-            activeMatch: "/100-docs-java/java8",
-          },
-          {
-            text: "JUC",
-            link: "/100-docs-java/120-java-juc/",
-            activeMatch: "/100-docs-java/120-java-juc/",
-          },
-          {
-            text: "Spring",
-            link: "/100-docs-java/300-spring/core/Bean的生命周期回调",
-            activeMatch: "/100-docs-java/spring",
-          },
-          {
-            text: "SpringMVC",
-            link: "/100-docs-java/500-springmvc",
-            activeMatch: "/100-docs-java/500-springmvc",
-          },
-          {
-            text: "SpringSecurity",
-            link: "/100-docs-java/510-spring-security/",
-            activeMatch: "/100-docs-java/510-spring-security",
-          },
-          {
-            text: "SpringBoot",
-            link: "/100-docs-java/600-springboot/",
-            activeMatch: "/100-docs-java/600-springboot",
-          },
-          {
-            text: "SpringCloud",
-            link: "/100-docs-java/700-springcloud/",
-            activeMatch: "/100-docs-java/700-springcloud",
-          },
-          {
-            text: "Jersey",
-            link: "/100-docs-java/jersey/",
-            activeMatch: "/100-docs-java/jersey",
-          },
-          {
-            text: "实践项目",
-            link: "/100-docs-java/999-atiguigu-sz/",
-            activeMatch: "/100-docs-java/999-atiguigu-sz/",
-          },
-          {
-            text: "阿里巴巴开发规范",
-            link: "/100-docs-java/阿里巴巴开发规范",
-          },
-        ],
-      },
-      {
-        text: "大前端",
-        link: "/200-docs-front/",
-        activeMatch: "/200-docs-front/",
-      },
-      {
-        text: "中间件",
-        items: [
-          {
-            text: "Redis",
-            link: "/300-docs-middleware/01-redis/",
-            activeMatch: "/300-docs-middleware/01-redis/",
-          },
-          {
-            text: "RabbitMQ",
-            link: "/300-docs-middleware/810-中间件-RabbitMQ/",
-            activeMatch: "/300-docs-middleware/810-中间件-RabbitMQ",
-          },
-        ],
-      },
-      {
-        text: "百宝箱",
-        link: "/500-docs-tools/",
-        activeMatch: "/500-docs-tools",
-      },
-    ],
-
+    nav: nav,
     sidebar: {
-      // "/docs-example/": {
-      //   base: "/docs-example/",
-      //   items: exampleGuideSidebar(),
-      // },
-      // "/100-docs-java/": {
-      //   base: "/100-docs-java/",
-      //   items: javaGuideSidebar("/100-docs-java/"),
-      // },
+      ...sidebar,
       "/100-docs-java/120-java-juc/": {
         base: "/100-docs-java/120-java-juc/",
         items: [
@@ -250,15 +159,15 @@ export default defineConfig({
             link: "SpringMVC中方法Hanlder的注册过程",
           },
           {
-            text:'Swagger',
-            base:'/100-docs-java/500-springmvc/swagger/',
-            items:[
+            text: "Swagger",
+            base: "/100-docs-java/500-springmvc/swagger/",
+            items: [
               {
-                text:'概述',
-                link:'index',
-              }
-            ]
-          }
+                text: "概述",
+                link: "index",
+              },
+            ],
+          },
         ],
       },
       "/100-docs-java/510-spring-security": {
@@ -289,22 +198,6 @@ export default defineConfig({
         base: "/100-docs-java/999-atiguigu-sz/",
         items: [],
       },
-      "/300-docs-middleware/810-中间件-RabbitMQ": {
-        base: "/300-docs-middleware/810-中间件-RabbitMQ/",
-        items: [{ text: "RabbitMQ", link: "/RabbitMQ" }],
-      },
-      "/300-docs-middleware/01-redis/": {
-        base: "/300-docs-middleware/01-redis/",
-        items: [
-          { text: "Redis中5种数据类型", link: "Redis中5种数据类型" },
-          { text: "Redis中key过期", link: "Redis中key过期" },
-          { text: "Redis-黑马", link: "/heima/Redis-黑马" },
-        ],
-      },
-      // "/500-docs-tools/": {
-      //   base: "/500-docs-tools/",
-      //   items: toolsSidebar("/500-docs-tools/"),
-      // },
     },
 
     socialLinks: [
@@ -376,14 +269,6 @@ function exampleGuideSidebar(): DefaultTheme.SidebarItem[] {
   return [
     { text: "Markdown Examples", link: "markdown-examples" },
     { text: "Runtime API Examples", link: "api-examples" },
-  ];
-}
-
-function toolsSidebar(base): DefaultTheme.SidebarItem[] {
-  return [
-    { text: "vscode", link: "vscode" },
-    { text: "markdown", link: "use-markdown" },
-    { text: "nvm", link: "nvm" },
   ];
 }
 
