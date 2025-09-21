@@ -25,18 +25,18 @@ WebSocket 是另一种用于实现实时双向通信的 Web 技术，它与 SSE 
 
 ## 进行 SSE 实时数据推送时的注意点
 
-1. 异步处理：由于 SSE 是基于长连接的机制，推送数据的过程是一个长时间的操作。为了不阻塞服务器线程，推荐使用异步方式处理 SSE 请求。您可以在控制器方法中使用@Async 注解或使用 CompletableFuture 等异步编程方式。
-2. 超时处理：SSE 连接可能会因为网络中断、客户端关闭等原因而发生超时。为了避免无效的连接一直保持在服务器端，您可以设置超时时间并处理连接超时的情况。可以使用 SseEmitter 对象的 setTimeout()方法设置超时时间，并通过 onTimeout()方法处理连接超时的逻辑。
-3. 异常处理：在实际应用中，可能会出现一些异常情况，如网络异常、推送数据失败等。您可以使用 SseEmitter 对象的 completeWithError()方法将异常信息发送给客户端，并在客户端通过 eventSource.onerror 事件进行处理。
-4. 内存管理：使用 SseEmitter 时需要注意内存管理，特别是在大量并发连接的情况下。当客户端断开连接时，务必及时释放 SseEmitter 对象，避免造成资源泄漏和内存溢出。
+1. 异步处理：由于 SSE 是基于长连接的机制，推送数据的过程是一个长时间的操作。为了不阻塞服务器线程，推荐使用异步方式处理 SSE 请求。您可以在控制器方法中使用 `@Async` 注解或使用 `CompletableFuture` 等异步编程方式。
+2. 超时处理：SSE 连接可能会因为网络中断、客户端关闭等原因而发生超时。为了避免无效的连接一直保持在服务器端，您可以设置超时时间并处理连接超时的情况。可以使用 `SseEmitter` 对象的 `setTimeout()` 方法设置超时时间，并通过 `onTimeout()`方法处理连接超时的逻辑。
+3. 异常处理：在实际应用中，可能会出现一些异常情况，如网络异常、推送数据失败等。您可以使用 `SseEmitter` 对象的 completeWithError()方法将异常信息发送给客户端，并在客户端通过 `eventSource.onerror` 事件进行处理。
+4. 内存管理：使用 `SseEmitter` 时需要注意内存管理，特别是在大量并发连接的情况下。当客户端断开连接时，务必及时释放 `SseEmitter` 对象，避免造成资源泄漏和内存溢出。
 5. 并发性能：SSE 的并发连接数可能会对服务器的性能造成影响。如果需要处理大量的并发连接，可以考虑使用线程池或其他异步处理方式，以充分利用服务器资源。
 6. 客户端兼容性：虽然大多数现代浏览器都支持 SSE，但仍然有一些旧版本的浏览器不支持。在使用 SSE 时，要确保您的目标客户端支持 SSE，或者提供备用的实时数据推送机制。
 
-这些注意点将有助于您正确和高效地使用 SseEmitter 进行 SSE 实时数据推送。根据具体的应用需求，您可以根据实际情况进行调整和优化。
+这些注意点将有助于您正确和高效地使用 `SseEmitter` 进行 SSE 实时数据推送。根据具体的应用需求，您可以根据实际情况进行调整和优化。
 
 ## 使用 Spring MVC 实现 SSE 接口
 
-前面我们提到 Spring 4.2 起就开始支持 SSE 规范，当时引入了 SseEmitter 类。下面是一个简单示例：
+前面我们提到 Spring 4.2 起就开始支持 SSE 规范，当时引入了 `SseEmitter` 类。下面是一个简单示例：
 
 ```java
 @GetMapping("/stream-sse-mvc")
@@ -61,7 +61,7 @@ public SseEmitter streamSseMvc() {
 }
 ```
 
-在上面的代码中，我们创建了一个 SseEmitter 对象，并使用 ExecutorService 来异步发送数据。我们在一个无限循环中每秒发送一次数据，并在发生异常时调用 completeWithError()方法来处理异常。
+在上面的代码中，我们创建了一个 `SseEmitter` 对象，并使用 `ExecutorService` 来异步发送数据。我们在一个无限循环中每秒发送一次数据，并在发生异常时调用 `completeWithError()`方法来处理异常。
 
 ## 使用 Spring WebFlux 实现 SSE 接口
 
@@ -75,7 +75,7 @@ public Flux<String> streamSseWebflux() {
 }
 ```
 
-在上面的代码中，我们使用 Flux.interval()方法创建一个每秒发出一个序列号的 Flux 对象，并使用 map()方法将序列号转换为 SSE 事件。我们还指定了 produces 属性为 MediaType.TEXT_EVENT_STREAM_VALUE，以指示返回的数据类型为 SSE 事件流。
+在上面的代码中，我们使用 `Flux.interval()`方法创建一个每秒发出一个序列号的 `Flux` 对象，并使用 map()方法将序列号转换为 SSE 事件。我们还指定了 `produces` 属性为 `MediaType.TEXT_EVENT_STREAM_VALUE`，以指示返回的数据类型为 SSE 事件流。
 
 ## Java Okhtt3 接收 SSE 事件
 
@@ -113,13 +113,13 @@ client.newCall(request).enqueue(new Callback() {
 });
 ```
 
-在上面的代码中，我们创建了一个 OkHttpClient 对象，并使用 Request.Builder 来构建请求。我们使用 enqueue()方法异步发送请求，并在 onResponse()方法中处理响应数据。
-在 onResponse()方法中，我们检查响应是否成功，并使用 BufferedSource 来读取响应体中的数据。我们使用 readUtf8Line()方法逐行读取数据，并在控制台中打印出来。
+在上面的代码中，我们创建了一个 `OkHttpClient` 对象，并使用 `Request.Builder` 来构建请求。我们使用 `enqueue()`方法异步发送请求，并在 `onResponse()`方法中处理响应数据。
+在 `onResponse()`方法中，我们检查响应是否成功，并使用 `BufferedSource` 来读取响应体中的数据。我们使用 `readUtf8Line()`方法逐行读取数据，并在控制台中打印出来。
 
-在 onFailure()方法中，我们处理请求失败的情况，并打印错误信息。
+在 `onFailure()`方法中，我们处理请求失败的情况，并打印错误信息。
 
 ## Java webclient 接收 SSE 事件
-在 Java WebClient 中，我们可以使用 WebClient 来接收 SSE 事件：
+在 Java `WebClient` 中，我们可以使用 `WebClient` 来接收 SSE 事件：
 
 ```java
 WebClient webClient = WebClient.create("http://localhost:8080");
@@ -134,9 +134,9 @@ webClient.get()
       System.err.println("Error occurred: " + error.getMessage());
   });
 ```
-在上面的代码中，我们创建了一个 WebClient 对象，并使用 get()方法发送 GET 请求。我们使用 accept()方法指定请求的 Accept 头为 text/event-stream，以指示我们希望接收 SSE 事件。
-我们使用 retrieve()方法获取响应，并使用 bodyToFlux()方法将响应体转换为 Flux<String> 对象。最后，我们使用 subscribe()方法订阅 Flux 对象，并在接收到数据时打印出来。
-在发生错误时，我们使用 error 处理程序来处理错误。
+在上面的代码中，我们创建了一个 WebClient 对象，并使用 `get()`方法发送 GET 请求。我们使用 accept()方法指定请求的 Accept 头为 `text/event-stream`，以指示我们希望接收 SSE 事件。
+我们使用 `retrieve()`方法获取响应，并使用 `bodyToFlux()`方法将响应体转换为 `Flux<String>` 对象。最后，我们使用 `subscribe()`方法订阅 Flux 对象，并在接收到数据时打印出来。
+在发生错误时，我们使用 `error` 处理程序来处理错误。
 
 ## javaScript 客户端接收 SSE 事件
 
@@ -165,7 +165,7 @@ axios 流式请求主要有两种写法:
 
 ### 创建流并 Pipe 到 Writable Stream
 
-通过调用 axios() 方法发起请求，获取到响应对象后，监听 data 事件，然后 pipe 数据到一个 Writable Stream 中，如 fs.createWriteStream。
+通过调用 `axios()` 方法发起请求，获取到响应对象后，监听 `data` 事件，然后 `pipe` 数据到一个 `Writable` Stream 中，如 `fs.createWriteStream`。
 
 ```javascript
 const axios = require("axios");
