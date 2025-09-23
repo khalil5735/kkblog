@@ -4,7 +4,7 @@ export default {
       text: "百宝箱",
       base: "/500-docs-tools/",
       items: [
-        { text: "vscode", link: "vscode" },
+        { text: "vscode", link: "vscode/index" },
         { text: "markdown", link: "use-markdown" },
         { text: "nvm", link: "nvm" },
         { text: "vitepress", link: "vitepress" },
