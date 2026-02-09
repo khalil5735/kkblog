@@ -5,8 +5,8 @@ export default {
       base: "/500-docs-tools/vscode/",
       items: [
         { text: "vscode 常用配置", link: "/index" },
-        { text: "vscode 插件推荐", link: "/vscode-plugin" },
-      ],
+        { text: "vscode 插件推荐", link: "/vscode-plugin" }
+      ]
     },
     {
       text: "百宝箱",
@@ -14,8 +14,8 @@ export default {
       items: [
         { text: "markdown", link: "use-markdown" },
         { text: "nvm", link: "nvm" },
-        { text: "vitepress", link: "vitepress" },
-      ],
-    },
-  ],
+        { text: "vitepress", link: "vitepress" }
+      ]
+    }
+  ]
 };
