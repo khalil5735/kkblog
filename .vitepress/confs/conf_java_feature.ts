@@ -1,6 +1,11 @@
 export default {
   nav(parent_path: string) {
-    return {};
+    const base = parent_path + "/001-feature/";
+    return {
+      text: "版本特性",
+      link: base,
+      activeMatch: base
+    };
   },
   sidebar(parent_path: string) {
     const base = parent_path + "/001-feature";

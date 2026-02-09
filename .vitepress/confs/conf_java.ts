@@ -1,6 +1,8 @@
 import { DefaultTheme } from "vitepress";
+import conf_java_environment_deployment from "./conf_java_environment_deployment";
 import conf_java_feature from "./conf_java_feature";
-import conf_java_http from "./conf_java_http";
+import conf_java_juc from "./conf_java_juc";
+import conf_java_tools from "./conf_java_tools";
 
 const base = "/100-docs-java";
 function springbootGuideSidebar(base: String): DefaultTheme.SidebarItem[] {
@@ -202,29 +204,10 @@ export default {
         link: `${base}/190-jvm/`,
         activeMatch: "/100-docs-java/190-jvm/"
       },
-      {
-        text: "java 基础",
-        link: `${base}/搭建java开发环境`,
-        activeMatch: "/100-docs-java/java-basic"
-      },
-      {
-        text: "版本特性",
-        link: "/100-docs-java/001-feature/",
-        activeMatch: "/100-docs-java/001-feature/"
-      },
-      {
-        text: "JUC",
-        link: "/100-docs-java/120-java-juc/",
-        activeMatch: "/100-docs-java/120-java-juc/"
-      },
-      {
-        text: "Apache Commons 工具包",
-        link: "/100-docs-java/140-apache-commons/"
-      },
-      {
-        text: "Http",
-        link: "/100-docs-java/170-http/"
-      },
+      conf_java_environment_deployment.nav(base),
+      conf_java_feature.nav(base),
+      conf_java_tools.nav(base),
+      conf_java_juc.nav(base),
       {
         text: "Spring",
         link: "/100-docs-java/300-spring/core/Bean的生命周期回调",
@@ -283,21 +266,6 @@ export default {
             { text: "类的加载过程", link: "类的加载过程" },
             { text: "双亲委派机制", link: "双亲委派机制" }
           ]
-        }
-      ]
-    },
-    "/100-docs-java/120-java-juc/": {
-      base: "/100-docs-java/120-java-juc/",
-      items: [
-        { text: "可见性、原子性和有序性", link: "02-可见性、原子性和有序性" },
-        { text: "java内存模型", link: "JMM" },
-        {
-          text: "volatile共享变量的可见行",
-          link: "volatile共享变量的可见行"
-        },
-        {
-          text: "JUC中的阻塞队列",
-          link: "JUC中的阻塞队列"
         }
       ]
     },
@@ -465,23 +433,9 @@ export default {
       base: "/100-docs-java/800-middleware/",
       items: []
     },
-    "/100-docs-java/140-apache-commons/": [
-      {
-        text: "概述",
-        link: "/100-docs-java/140-apache-commons/"
-      },
-      {
-        text: "Apache Commons Lang3",
-        base: "/100-docs-java/140-apache-commons/commons-lang3/",
-        items: [{ text: "BooleanUtils", link: "commons-lang3-booleanutils" }]
-      },
-      {
-        text: "Apache Commons Text",
-        base: "/100-docs-java/140-apache-commons/commons-text/",
-        items: [{ text: "StringSubstitutor", link: "commons-text-stringsubstitutor" }]
-      }
-    ],
-    ...conf_java_http.sidebar(base),
-    ...conf_java_feature.sidebar(base)
+    ...conf_java_tools.sidebar(base),
+    ...conf_java_feature.sidebar(base),
+    ...conf_java_environment_deployment.sidebar(base),
+    ...conf_java_juc.sidebar(base)
   }
 };
