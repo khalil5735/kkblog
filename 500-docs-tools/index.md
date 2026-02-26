@@ -1,5 +1,10 @@
 # 好用的工具
 
+## 截图工具
+
+- [Snipaste](https://www.snipaste.com/)
+- [pin](https://pixpin.cn/)
+
 ## 开发类
 
 ### 数据库管理
@@ -7,8 +12,6 @@
 #### DBeaver
 
 https://dbeaver.io/download/
-
-
 
 ### 本地 Api-client
 
@@ -21,7 +24,5 @@ https://www.usebruno.com/downloads
 ## 如何访问Github
 
 [GitHub520](https://gitee.com/klmahuaw/GitHub520)
-
-
 
 ## 其他
