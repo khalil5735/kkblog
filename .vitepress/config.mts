@@ -5,6 +5,7 @@ import sidebar from "./config_sidebar";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
+  lastUpdated: true, // 启用最后更新时间
   ignoreDeadLinks: true,
   title: "KK BLOG",
   description: "powered by VitePress",

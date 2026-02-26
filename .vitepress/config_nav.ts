@@ -1,4 +1,5 @@
 import { DefaultTheme } from "vitepress";
+import conf_deploy_docker from "./confs/conf_deploy_docker";
 import sub_conf_java from "./confs/conf_java";
 import docs_middleware_rabbitmq from "./confs/docs_middleware_rabbitmq";
 import docs_middleware_redis from "./confs/docs_middleware_redis";
@@ -21,10 +22,7 @@ let nav: DefaultTheme.NavItem[] = [
   },
   {
     text: "环境部署",
-    items: [
-      { text: "Linux", link: "/700-docs-deploy/01-linux/" },
-      { text: "Docker", link: "/700-docs-deploy/02-docker/" }
-    ]
+    items: [{ text: "Linux", link: "/700-docs-deploy/01-linux/" }, conf_deploy_docker.nav("")]
   }
 ];
 

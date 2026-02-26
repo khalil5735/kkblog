@@ -1,4 +1,5 @@
 import { DefaultTheme } from "vitepress";
+import conf_deploy_docker from "./confs/conf_deploy_docker";
 import sub_conf_java from "./confs/conf_java";
 import docs_middleware_rabbitmq from "./confs/docs_middleware_rabbitmq";
 import docs_middleware_redis from "./confs/docs_middleware_redis";
@@ -13,5 +14,6 @@ export default {
   ...sidebar,
   ...sub_conf_java.sidebar,
   ...sidebar700Deploy01Linux,
-  ...sidebar500Tools
+  ...sidebar500Tools,
+  ...conf_deploy_docker.sidebar("")
 };
