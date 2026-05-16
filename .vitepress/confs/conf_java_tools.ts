@@ -27,7 +27,7 @@ export default {
         {
           text: "json",
           base: base + "/json/",
-          items: []
+          items: [{ text: "Jackson", link: "jackson" }]
         },
         {
           text: "Apache Commons",
