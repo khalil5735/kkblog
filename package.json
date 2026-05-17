@@ -1,12 +1,15 @@
 {
   "devDependencies": {
-    "vitepress": "^1.6.4"
+    "vitepress": "^1.6.4",
+    "prettier": "^3.0.0"
   },
   "scripts": {
     "start": "npm run docs:dev",
     "build": "npm run docs:build",
     "docs:dev": "vitepress dev",
     "docs:build": "vitepress build",
-    "docs:preview": "vitepress preview"
+    "docs:preview": "vitepress preview",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
   }
 }

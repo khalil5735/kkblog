@@ -1,0 +1,27 @@
+# Dependencies
+node_modules/
+
+# Production builds
+/dist
+/.vitepress/dist
+
+# Logs
+*.log
+npm-debug.log*
+
+# Environment
+.env*
+
+# Git
+.git/
+.gitignore
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS generated files
+.DS_Store
+Thumbs.db
