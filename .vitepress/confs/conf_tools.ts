@@ -24,6 +24,11 @@ export default {
           ]
         },
         {
+          text: "git",
+          base: base + "tool-git/",
+          items: [{ text: "GitFlow", link: "/gitflow" }]
+        },
+        {
           text: "其他工具",
           base: base,
           items: [
