@@ -27,6 +27,7 @@ export default {
           text: "其他工具",
           base: base,
           items: [
+            { text: "git", link: "git" },
             { text: "markdown", link: "use-markdown" },
             { text: "nvm", link: "nvm" },
             { text: "vitepress", link: "vitepress" }
