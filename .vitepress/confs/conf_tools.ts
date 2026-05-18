@@ -24,15 +24,18 @@ export default {
           ]
         },
         {
-          text: "git",
+          text: "Git",
           base: base + "tool-git/",
-          items: [{ text: "GitFlow", link: "/gitflow" }]
+          items: [
+            { text: "Git", link: "git" },
+            { text: "GitFlow", link: "/gitflow" },
+            { text: "Github访问", link: "github访问" }
+          ]
         },
         {
           text: "其他工具",
           base: base,
           items: [
-            { text: "git", link: "git" },
             { text: "markdown", link: "use-markdown" },
             { text: "nvm", link: "nvm" },
             { text: "vitepress", link: "vitepress" }
