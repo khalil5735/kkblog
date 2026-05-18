@@ -1,4 +1,5 @@
 import { DefaultTheme } from "vitepress";
+import conf_ai from "./confs/conf_ai";
 import conf_deploy_docker from "./confs/conf_deploy_docker";
 import sub_conf_java from "./confs/conf_java";
 import docs_middleware_rabbitmq from "./confs/docs_middleware_rabbitmq";
@@ -6,6 +7,7 @@ import docs_middleware_redis from "./confs/docs_middleware_redis";
 
 let nav: DefaultTheme.NavItem[] = [
   { text: "首页", link: "/" },
+  conf_ai.nav(""),
   sub_conf_java.nav,
   {
     text: "百宝箱",
