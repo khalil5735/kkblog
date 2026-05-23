@@ -8,7 +8,9 @@ export default {
     return {
       [base]: [
         { text: "概述", link: base },
-        { text: "PGC和UGC和AIGC", link: `${base}/PGC和UGC和AIGC` }
+        { text: "PGC和UGC和AIGC", link: `${base}/PGC和UGC和AIGC` },
+        { text: "Prompt", link: `${base}/prompt/prompt_collection` },
+        { text: "SpringAI", link: `${base}/springai/springai` }
       ]
     };
   }
