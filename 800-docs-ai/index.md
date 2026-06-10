@@ -1,1 +1,9 @@
-AI 的时代
+
+## Model Support
+
+- Tool Calling
+- Structured Output
+- Multimodality
+- Reasoning
+
+
