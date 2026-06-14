@@ -26,3 +26,8 @@ https://www.usebruno.com/downloads
 [GitHub520](https://gitee.com/klmahuaw/GitHub520)
 
 ## 其他
+
+### Windows PDF 阅读器 - Sumatra PDF
+
+[Free PDF Reader - Sumatra PDF](https://www.sumatrapdfreader.org/free-pdf-reader)
+
