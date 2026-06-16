@@ -1,4 +1,5 @@
 import { DefaultTheme } from "vitepress";
+import confJavaSpringmvc from "./confs/conf-java-springmvc";
 import conf_ai from "./confs/conf_ai";
 import conf_deploy_docker from "./confs/conf_deploy_docker";
 import sub_conf_java from "./confs/conf_java";
@@ -16,5 +17,6 @@ export default {
   ...sidebar700Deploy01Linux,
   ...conf_tools.sidebar(""),
   ...conf_deploy_docker.sidebar(""),
-  ...conf_ai.sidebar("")
+  ...conf_ai.sidebar(""),
+  ...confJavaSpringmvc.sidebar("")
 };
